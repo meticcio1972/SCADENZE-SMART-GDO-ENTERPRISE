@@ -1,7 +1,7 @@
-/* ==================================================
-   SCADENZE SMART GDO ENTERPRISE
+/* ===========================
+   SCADENZE SMART GDO
    GLOBAL STYLE
-================================================== */
+=========================== */
 
 *{
     margin:0;
@@ -11,19 +11,18 @@
 
 :root{
 
-    --bg:#0b1220;
-    --sidebar:#111827;
-    --surface:#182235;
+    --bg:#0B1120;
+    --sidebar:#121A2B;
+    --panel:#182235;
 
-    --primary:#3B82F6;
-    --success:#22C55E;
-    --warning:#FACC15;
-    --danger:#EF4444;
+    --blue:#3B82F6;
+    --green:#22C55E;
+    --orange:#F97316;
+    --yellow:#FACC15;
+    --red:#EF4444;
 
     --text:#FFFFFF;
-    --text-secondary:#94A3B8;
-
-    --radius:18px;
+    --text2:#94A3B8;
 
 }
 
@@ -31,11 +30,9 @@ body{
 
     background:var(--bg);
 
-    font-family:'Inter',sans-serif;
-
     color:var(--text);
 
-    overflow:hidden;
+    font-family:'Inter',sans-serif;
 
 }
 
@@ -43,68 +40,26 @@ body{
 
     display:grid;
 
-    grid-template-columns:280px 1fr;
+    grid-template-columns:230px 1fr;
 
     min-height:100vh;
 
 }
 
-.main{
-
-    display:flex;
-
-    flex-direction:column;
+main{
 
     padding:30px;
 
-    gap:25px;
-
-    overflow:auto;
-
 }
 
-.content{
+.dashboard{
 
     display:grid;
 
-    grid-template-columns:2fr 360px;
+    grid-template-columns:1fr 340px;
 
     gap:25px;
 
-    flex:1;
-
-}
-
-.table-container{
-
-    background:var(--surface);
-
-    border-radius:var(--radius);
-
-    min-height:500px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.30);
-
-}
-
-.widgets{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
-}
-
-.widget{
-
-    background:var(--surface);
-
-    border-radius:var(--radius);
-
-    min-height:160px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.30);
+    margin-top:25px;
 
 }
