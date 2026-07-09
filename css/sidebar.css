@@ -1,54 +1,52 @@
-/* ==========================================
-   SIDEBAR ENTERPRISE
-========================================== */
+/* ======================================================
+   SIDEBAR - SCADENZE SMART GDO ENTERPRISE
+====================================================== */
 
 .sidebar{
 
+    width:270px;
     background:#111827;
 
-    padding:30px 22px;
+    display:flex;
+    flex-direction:column;
+
+    padding:28px 20px;
+
+    border-right:1px solid rgba(255,255,255,.06);
+
+}
+
+/* ---------------- LOGO ---------------- */
+
+.logo-placeholder{
+
+    height:90px;
+
+    border-radius:20px;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
 
     display:flex;
 
-    flex-direction:column;
+    align-items:center;
 
-    border-right:1px solid rgba(255,255,255,.05);
+    justify-content:center;
 
-}
+    color:white;
 
-.logo{
-
-    margin-bottom:50px;
-
-}
-
-.logo h2{
-
-    font-size:44px;
+    font-size:30px;
 
     font-weight:800;
 
-    color:#3B82F6;
+    letter-spacing:3px;
 
-    letter-spacing:2px;
+    margin-bottom:45px;
 
-}
-
-.logo span{
-
-    display:block;
-
-    margin-top:8px;
-
-    color:#94A3B8;
-
-    font-size:13px;
-
-    line-height:20px;
-
-    text-transform:uppercase;
+    box-shadow:0 20px 35px rgba(37,99,235,.30);
 
 }
+
+/* ---------------- MENU ---------------- */
 
 .sidebar nav{
 
@@ -56,7 +54,7 @@
 
     flex-direction:column;
 
-    gap:10px;
+    gap:8px;
 
 }
 
@@ -66,15 +64,17 @@
 
     align-items:center;
 
-    padding:16px 18px;
+    height:52px;
 
-    border-radius:16px;
+    padding:0 18px;
+
+    border-radius:14px;
 
     color:#CBD5E1;
 
     text-decoration:none;
 
-    font-size:16px;
+    font-size:15px;
 
     font-weight:500;
 
@@ -92,12 +92,22 @@
 
 }
 
-.sidebar nav .active{
+.sidebar nav a.active{
 
     background:linear-gradient(90deg,#2563EB,#3B82F6);
 
     color:white;
 
-    box-shadow:0 12px 30px rgba(59,130,246,.35);
+    box-shadow:0 12px 25px rgba(37,99,235,.35);
+
+}
+
+/* -------- spazio inferiore ---------- */
+
+.sidebar::after{
+
+    content:"";
+
+    flex:1;
 
 }
