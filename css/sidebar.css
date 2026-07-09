@@ -1,61 +1,103 @@
-/* ==========================
-   SIDEBAR
-========================== */
+/* ==========================================
+   SIDEBAR ENTERPRISE
+========================================== */
 
 .sidebar{
-    width:270px;
-    min-height:100vh;
+
     background:#111827;
-    border-right:1px solid rgba(255,255,255,.08);
+
+    padding:30px 22px;
+
     display:flex;
+
     flex-direction:column;
-    padding:30px 20px;
+
+    border-right:1px solid rgba(255,255,255,.05);
+
 }
 
 .logo{
-    margin-bottom:40px;
+
+    margin-bottom:50px;
+
 }
 
 .logo h2{
-    color:#ffffff;
-    font-size:28px;
+
+    font-size:44px;
+
     font-weight:800;
-    letter-spacing:1px;
+
+    color:#3B82F6;
+
+    letter-spacing:2px;
+
 }
 
 .logo span{
+
     display:block;
-    color:#3B82F6;
+
+    margin-top:8px;
+
+    color:#94A3B8;
+
     font-size:13px;
-    margin-top:6px;
-    letter-spacing:2px;
+
+    line-height:20px;
+
     text-transform:uppercase;
+
 }
 
 .sidebar nav{
+
     display:flex;
+
     flex-direction:column;
+
     gap:10px;
+
 }
 
 .sidebar nav a{
-    text-decoration:none;
-    color:#cbd5e1;
+
+    display:flex;
+
+    align-items:center;
+
     padding:16px 18px;
-    border-radius:14px;
-    transition:.3s;
+
+    border-radius:16px;
+
+    color:#CBD5E1;
+
+    text-decoration:none;
+
     font-size:16px;
+
     font-weight:500;
+
+    transition:.30s;
+
 }
 
 .sidebar nav a:hover{
-    background:#1d4ed8;
+
+    background:#1E293B;
+
     color:white;
-    transform:translateX(5px);
+
+    transform:translateX(6px);
+
 }
 
-.sidebar nav a.active{
-    background:linear-gradient(90deg,#2563eb,#3b82f6);
+.sidebar nav .active{
+
+    background:linear-gradient(90deg,#2563EB,#3B82F6);
+
     color:white;
-    box-shadow:0 8px 20px rgba(59,130,246,.35);
+
+    box-shadow:0 12px 30px rgba(59,130,246,.35);
+
 }
