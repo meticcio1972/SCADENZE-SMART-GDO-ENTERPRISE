@@ -1,85 +1,55 @@
+ /* ==========================
+   TOPBAR
+========================== */
+
 .content{
-
     flex:1;
-
+    background:#0B1220;
     padding:30px;
-
-    background:#0b1120;
-
 }
 
 .topbar{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    margin-bottom:35px;
-
+    margin-bottom:30px;
 }
 
 .topbar input{
-
-    width:500px;
-
+    width:520px;
     height:52px;
-
-    background:#111827;
-
-    border:1px solid rgba(255,255,255,.08);
-
+    background:#1A2332;
+    border:none;
     border-radius:30px;
-
-    padding:0 25px;
-
-    color:white;
-
+    padding:0 22px;
+    color:#ffffff;
     font-size:16px;
-
     outline:none;
+    transition:.3s;
+}
 
-    transition:.30s;
-
+.topbar input::placeholder{
+    color:#94A3B8;
 }
 
 .topbar input:focus{
-
-    border-color:#2563eb;
-
-    box-shadow:0 0 20px rgba(37,99,235,.45);
-
+    box-shadow:0 0 0 3px rgba(59,130,246,.30);
 }
 
 .utente{
-
     display:flex;
-
     align-items:center;
-
     gap:15px;
-
 }
 
 .avatar{
-
-    width:46px;
-
-    height:46px;
-
+    width:48px;
+    height:48px;
     border-radius:50%;
-
-    background:linear-gradient(135deg,#2563eb,#3b82f6);
-
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
 }
 
-.nome{
-
-    color:white;
-
+.utente strong{
+    color:#fff;
     font-size:16px;
-
-    font-weight:bold;
-
 }
