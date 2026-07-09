@@ -1,52 +1,72 @@
-/* ======================================================
-   SIDEBAR - SCADENZE SMART GDO ENTERPRISE
-====================================================== */
+/* =====================================
+   SIDEBAR
+===================================== */
 
 .sidebar{
 
-    width:270px;
     background:#111827;
 
+    padding:25px 18px;
+
     display:flex;
+
     flex-direction:column;
 
-    padding:28px 20px;
-
-    border-right:1px solid rgba(255,255,255,.06);
+    border-right:1px solid rgba(255,255,255,.05);
 
 }
 
-/* ---------------- LOGO ---------------- */
+/* ---------- LOGO ---------- */
 
-.logo-placeholder{
+.logo{
 
-    height:90px;
+    margin-bottom:40px;
 
-    border-radius:20px;
+}
 
-    background:linear-gradient(135deg,#2563EB,#1D4ED8);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+.logo h1{
 
     color:white;
 
-    font-size:30px;
+    font-size:28px;
 
     font-weight:800;
 
-    letter-spacing:3px;
+    line-height:30px;
 
-    margin-bottom:45px;
-
-    box-shadow:0 20px 35px rgba(37,99,235,.30);
+    letter-spacing:1px;
 
 }
 
-/* ---------------- MENU ---------------- */
+.logo span{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#3B82F6;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.logo small{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+}
+
+/* ---------- MENU ---------- */
 
 .sidebar nav{
 
@@ -64,19 +84,17 @@
 
     align-items:center;
 
-    height:52px;
+    height:50px;
 
     padding:0 18px;
 
     border-radius:14px;
 
-    color:#CBD5E1;
-
     text-decoration:none;
 
-    font-size:15px;
+    color:#CBD5E1;
 
-    font-weight:500;
+    font-size:16px;
 
     transition:.30s;
 
@@ -88,8 +106,6 @@
 
     color:white;
 
-    transform:translateX(6px);
-
 }
 
 .sidebar nav a.active{
@@ -98,16 +114,8 @@
 
     color:white;
 
-    box-shadow:0 12px 25px rgba(37,99,235,.35);
+    font-weight:600;
 
-}
-
-/* -------- spazio inferiore ---------- */
-
-.sidebar::after{
-
-    content:"";
-
-    flex:1;
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
 
 }
