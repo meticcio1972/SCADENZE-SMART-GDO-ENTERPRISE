@@ -1,7 +1,7 @@
-/* ====================================================
+/* ==================================================
    SCADENZE SMART GDO ENTERPRISE
    GLOBAL STYLE
-==================================================== */
+================================================== */
 
 *{
     margin:0;
@@ -11,30 +11,31 @@
 
 :root{
 
-    --background:#0B1220;
-    --surface:#121C2D;
-    --card:#1A2437;
+    --bg:#0b1220;
+    --sidebar:#111827;
+    --surface:#182235;
 
     --primary:#3B82F6;
     --success:#22C55E;
     --warning:#FACC15;
-    --orange:#F97316;
     --danger:#EF4444;
 
     --text:#FFFFFF;
-    --text2:#94A3B8;
+    --text-secondary:#94A3B8;
 
-    --radius:20px;
+    --radius:18px;
 
 }
 
 body{
 
+    background:var(--bg);
+
     font-family:'Inter',sans-serif;
 
-    background:var(--background);
-
     color:var(--text);
+
+    overflow:hidden;
 
 }
 
@@ -50,20 +51,60 @@ body{
 
 .main{
 
+    display:flex;
+
+    flex-direction:column;
+
     padding:30px;
 
-}
+    gap:25px;
 
-button{
-
-    border:none;
-
-    cursor:pointer;
+    overflow:auto;
 
 }
 
-input{
+.content{
 
-    font-family:'Inter',sans-serif;
+    display:grid;
+
+    grid-template-columns:2fr 360px;
+
+    gap:25px;
+
+    flex:1;
+
+}
+
+.table-container{
+
+    background:var(--surface);
+
+    border-radius:var(--radius);
+
+    min-height:500px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.30);
+
+}
+
+.widgets{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.widget{
+
+    background:var(--surface);
+
+    border-radius:var(--radius);
+
+    min-height:160px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.30);
 
 }
