@@ -1,6 +1,12 @@
+/* =========================================
+   KPI CARDS
+========================================= */
+
 .dashboard{
 
-    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
 
 }
 
@@ -8,28 +14,24 @@
 
     display:grid;
 
-    grid-template-columns:repeat(6,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
-    gap:20px;
-
-    margin-top:25px;
+    gap:22px;
 
 }
 
 .card{
 
-    background:linear-gradient(145deg,#182235,#101827);
+    background:linear-gradient(145deg,#1b2638,#101827);
 
     border-radius:22px;
 
-    padding:25px;
+    padding:24px;
 
-    min-height:140px;
-
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.06);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.45),
+        0 18px 40px rgba(0,0,0,.45),
         inset 0 1px 0 rgba(255,255,255,.05);
 
     transition:.35s;
@@ -43,63 +45,65 @@
     transform:translateY(-8px);
 
     box-shadow:
-        0 25px 45px rgba(0,0,0,.60),
-        0 0 30px rgba(59,130,246,.25);
+        0 25px 55px rgba(0,0,0,.60),
+        0 0 35px rgba(59,130,246,.25);
 
 }
 
 .card h3{
 
-    font-size:15px;
+    color:#94A3B8;
 
-    color:#cbd5e1;
+    font-size:15px;
 
     margin-bottom:18px;
 
 }
 
-.numero{
+.card .numero{
 
-    font-size:46px;
+    font-size:48px;
 
     font-weight:800;
 
     color:white;
 
+    line-height:1;
+
 }
 
 .scaduti{
 
-    border-left:6px solid #ef4444;
+    border-left:6px solid #EF4444;
 
 }
 
 .g3{
 
-    border-left:6px solid #f97316;
+    border-left:6px solid #F97316;
 
 }
 
 .g7{
 
-    border-left:6px solid #facc15;
+    border-left:6px solid #FACC15;
 
 }
 
 .g10{
 
-    border-left:6px solid #22c55e;
+    border-left:6px solid #22C55E;
 
 }
 
 .g15{
 
-    border-left:6px solid #14b8a6;
+    border-left:6px solid #14B8A6;
 
 }
 
 .totale{
 
-    border-left:6px solid #3b82f6;
+    border-left:6px solid #3B82F6;
 
 }
