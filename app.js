@@ -52,6 +52,7 @@ function avvia() {
 }
 
 function renderTabella() {
+    console.log("Render tabella", Prodotti.tutti());
 
     const tbody = document.getElementById("productTable");
 
