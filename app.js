@@ -15,6 +15,33 @@ function avvia() {
 
     // Carica i prodotti salvati
     Prodotti.carica(Storage.carica());
+    if (Prodotti.tutti().length === 0) {
+
+    Prodotti.aggiungi({
+        codice: "10001",
+        descrizione: "Bistecca di Manzo",
+        reparto: "Macelleria",
+        scadenza: "17/07/2026",
+        giorni: 1
+    });
+
+    Prodotti.aggiungi({
+        codice: "10002",
+        descrizione: "Fettine di Pollo",
+        reparto: "Macelleria",
+        scadenza: "19/07/2026",
+        giorni: 3
+    });
+
+    Prodotti.aggiungi({
+        codice: "10003",
+        descrizione: "Hamburger Scottona",
+        reparto: "Macelleria",
+        scadenza: "22/07/2026",
+        giorni: 6
+    });
+
+}
 
     // Disegna la tabella
     renderTabella();
