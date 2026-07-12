@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Pulsante:", nuovoProdottoBtn);
     const chiudiModal = document.getElementById("closeModal");
     const salvaProdotto = document.getElementById("saveProduct");
+    console.log("Salva:", salvaProdotto);
     console.log(modal);
     console.log(nuovoProdottoBtn);
 
