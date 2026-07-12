@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nuovoProdottoBtn = document.getElementById("newProduct");
     console.log("Pulsante:", nuovoProdottoBtn);
     const chiudiModal = document.getElementById("closeModal");
-
+    const salvaProdotto = document.getElementById("saveProduct");
     console.log(modal);
     console.log(nuovoProdottoBtn);
 
@@ -100,7 +100,31 @@ document.addEventListener("DOMContentLoaded", () => {
     chiudiModal.onclick = () => {
         modal.style.display = "none";
     };
+   salvaProdotto.onclick = () => {
 
+    const prodotto = {
+
+        codice: document.getElementById("codice").value,
+
+        descrizione: document.getElementById("descrizione").value,
+
+        reparto: document.getElementById("categoria").value,
+
+        scadenza: document.getElementById("scadenza").value,
+
+        giorni: 0
+
+    };
+
+    Prodotti.aggiungi(prodotto);
+
+    renderTabella();
+
+    Dashboard.aggiorna();
+
+    modal.style.display = "none";
+
+};
 });
 
 
