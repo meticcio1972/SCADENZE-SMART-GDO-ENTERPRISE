@@ -103,14 +103,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-if (nuovoProdottoBtn && modal) {
-    nuovoProdottoBtn.addEventListener("click", () => {
-        modal.style.display = "flex";
-    });
-}
-
-if (chiudiModal && modal) {
-    chiudiModal.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
 }
