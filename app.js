@@ -85,7 +85,9 @@ function renderTabella() {
 document.addEventListener("DOMContentLoaded", () => {
 
     const modal = document.getElementById("productModal");
+    console.log("Modal:", modal);
     const nuovoProdottoBtn = document.getElementById("newProduct");
+    console.log("Pulsante:", nuovoProdottoBtn);
     const chiudiModal = document.getElementById("closeModal");
 
     console.log(modal);
