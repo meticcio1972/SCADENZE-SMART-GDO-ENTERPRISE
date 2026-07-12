@@ -204,8 +204,49 @@
     </main>
 
 </div>
+<!-- FINESTRA NUOVO PRODOTTO -->
 
-<script src="storage.js"></script>
+<div id="productModal" class="modal">
+
+    <div class="modal-box">
+
+        <h2>Nuovo prodotto</h2>
+
+        <input id="codice" placeholder="Codice">
+
+        <input id="descrizione" placeholder="Descrizione">
+
+        <select id="categoria">
+
+            <option>Macelleria</option>
+            <option>Ortofrutta</option>
+            <option>Pescheria</option>
+            <option>Latticini</option>
+            <option>Gastronomia</option>
+            <option>Pane</option>
+            <option>Surgelati</option>
+
+        </select>
+
+        <input id="scadenza" type="date">
+
+        <input id="quantita" type="number" placeholder="Quantità">
+
+        <input id="prezzo" type="number" step="0.01" placeholder="Prezzo">
+
+        <textarea id="note" placeholder="Note"></textarea>
+
+        <div class="modal-buttons">
+
+            <button id="closeModal">Annulla</button>
+
+            <button id="saveProduct">Salva</button>
+
+        </div>
+
+    </div>
+
+</div><script src="storage.js"></script>
 <script src="prodotti.js"></script>
 <script src="dashboard.js"></script>
 <script src="app.js"></script>
