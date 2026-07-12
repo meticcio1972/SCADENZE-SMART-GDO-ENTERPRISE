@@ -82,9 +82,24 @@ function renderTabella() {
 }
 // ===== MODALE NUOVO PRODOTTO =====
 
-const modal = document.getElementById("productModal");
-const nuovoProdottoBtn = document.getElementById("newProduct");
-const chiudiModal = document.getElementById("closeModal");
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById("productModal");
+    const nuovoProdottoBtn = document.getElementById("newProduct");
+    const chiudiModal = document.getElementById("closeModal");
+
+    console.log(modal);
+    console.log(nuovoProdottoBtn);
+
+    nuovoProdottoBtn.onclick = () => {
+        modal.style.display = "flex";
+    };
+
+    chiudiModal.onclick = () => {
+        modal.style.display = "none";
+    };
+
+});
 
 if (nuovoProdottoBtn && modal) {
     nuovoProdottoBtn.addEventListener("click", () => {
