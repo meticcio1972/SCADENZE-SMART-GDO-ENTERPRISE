@@ -78,5 +78,23 @@ function renderTabella() {
         `;
 
     });
+// ===== MODALE NUOVO PRODOTTO =====
 
+const modal = document.getElementById("productModal");
+
+const nuovoProdottoBtn = document.getElementById("newProduct");
+
+const chiudiModal = document.getElementById("closeModal");
+
+if (nuovoProdottoBtn) {
+    nuovoProdottoBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+}
+
+if (chiudiModal) {
+    chiudiModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+}
 }
