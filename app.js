@@ -62,7 +62,7 @@ function renderTabella() {
 
     const lista = Prodotti.tutti();
 
-    lista.forEach(p => {
+    lista.forEach((p, index) => {
 
         tbody.innerHTML += `
         <tr>
@@ -71,9 +71,10 @@ function renderTabella() {
             <td>${p.reparto}</td>
             <td>${p.scadenza}</td>
             <td>${p.giorni}</td>
-            <td>
-                ✏️ 🗑️
-            </td>
+           <td>
+    <button onclick="modificaProdotto(${index})">✏️</button>
+    <button onclick="eliminaProdotto(${index})">🗑️</button>
+</td>
         </tr>
         `;
 
