@@ -159,3 +159,30 @@ td button{
 td button:hover{
     transform: scale(1.25);
 }
+.btn-edit,
+.btn-delete{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:18px;
+    padding:6px;
+    transition:0.2s;
+}
+
+.btn-edit{
+    color:#4da3ff;
+}
+
+.btn-edit:hover{
+    color:#7fc0ff;
+    transform:scale(1.15);
+}
+
+.btn-delete{
+    color:#ff4d4d;
+}
+
+.btn-delete:hover{
+    color:#ff7777;
+    transform:scale(1.15);
+}
