@@ -147,14 +147,15 @@ main{
     font-size:16px;
 }
 td button{
-    background: transparent;
-    border: none;
-    font-size: 24px;
+    background: transparent !important;
+    border: none !important;
+    font-size: 34px !important;
+    width: 42px;
+    height: 42px;
     cursor: pointer;
-    padding: 6px;
-    margin: 0 4px;
+    padding: 0;
 }
 
 td button:hover{
-    transform: scale(1.2);
+    transform: scale(1.25);
 }
