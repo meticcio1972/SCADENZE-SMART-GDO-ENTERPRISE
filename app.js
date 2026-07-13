@@ -216,7 +216,15 @@ for (let i = 1; i < righe.length; i++) {
 
     const campi = righe[i].split(";");
 
-   const scadenza = new Date(campi[2]);
+
+    const parti = campi[2].trim().split("/");
+
+const scadenza = new Date(
+    Number(parti[2]),
+    Number(parti[1]) - 1,
+    Number(parti[0])
+);
+
 const oggi = new Date();
 
 oggi.setHours(0,0,0,0);
@@ -228,7 +236,7 @@ prodotti.push({
     codice: campi[0],
     descrizione: campi[1],
     reparto: "",
-    scadenza: campi[2],
+    scadenza: `${parti[2]}-${parti[1]}-${parti[0]}`,
     giorni: giorni,
     quantita: "",
     prezzo: "",
