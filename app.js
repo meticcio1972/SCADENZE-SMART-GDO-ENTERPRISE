@@ -206,8 +206,10 @@ if (importCSVBtn && csvFile) {
 
     const testo = event.target.result;
 
-    const righe = testo.split("\n");
+    const righe = testo.trim().split(/\r?\n/);
 
+    console.log("Numero righe:", righe.length);
+alert("Trovate " + righe.length + " righe");        
     console.log(righe);
 
     alert("Trovate " + (righe.length - 1) + " righe nel CSV");
