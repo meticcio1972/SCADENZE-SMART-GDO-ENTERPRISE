@@ -118,7 +118,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
 
+    if (window.prodottoInModifica !== undefined) {
+
+    Prodotti.tutti()[window.prodottoInModifica] = prodotto;
+
+    localStorage.setItem(
+        "prodotti",
+        JSON.stringify(Prodotti.tutti())
+    );
+
+    window.prodottoInModifica = undefined;
+
+} else {
+
     Prodotti.aggiungi(prodotto);
+
+}
 
     renderTabella();
 
