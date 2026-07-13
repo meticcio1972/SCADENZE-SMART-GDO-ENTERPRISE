@@ -79,8 +79,13 @@ function formattaData(data) {
             <td>${formattaData(p.scadenza)}</td>
             <td>${p.giorni}</td>
            <td>
-    <button onclick="modificaProdotto(${index})">✏️</button>
-    <button onclick="eliminaProdotto(${index})">🗑️</button>
+   <button class="btn-edit" onclick="modificaProdotto(${index})">
+    <i class="fa-solid fa-pen-to-square"></i>
+</button>
+
+<button class="btn-delete" onclick="eliminaProdotto(${index})">
+    <i class="fa-solid fa-trash"></i>
+</button>
 </td>
         </tr>
         `;
