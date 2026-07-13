@@ -230,6 +230,8 @@ for (let i = 1; i < righe.length; i++) {
 
 localStorage.setItem("prodotti", JSON.stringify(prodotti));
 
+Prodotti.lista = prodotti;
+            
 renderTabella();
 Dashboard.aggiorna();
 
