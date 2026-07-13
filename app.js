@@ -147,13 +147,13 @@ function modificaProdotto(index) {
 
     const p = Prodotti.tutti()[index];
 
-    document.getElementById("codice").value = p.codice;
-    document.getElementById("descrizione").value = p.descrizione;
-    document.getElementById("categoria").value = p.reparto;
-    document.getElementById("scadenza").value = p.scadenza;
-    document.getElementById("quantita").value = p.quantita;
-    document.getElementById("prezzo").value = p.prezzo;
-    document.getElementById("note").value = p.note;
+    document.getElementById("codice").value = p.codice || "";
+    document.getElementById("descrizione").value = p.descrizione || "";
+    document.getElementById("categoria").value = p.reparto || "";
+    document.getElementById("scadenza").value = p.scadenza || "";
+    document.getElementById("quantita").value = p.quantita || "";
+    document.getElementById("prezzo").value = p.prezzo || "";
+    document.getElementById("note").value = p.note || "";
 
     window.prodottoInModifica = index;
 
