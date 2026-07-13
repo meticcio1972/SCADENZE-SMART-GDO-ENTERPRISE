@@ -216,16 +216,24 @@ for (let i = 1; i < righe.length; i++) {
 
     const campi = righe[i].split(";");
 
-    prodotti.push({
-        codice: campi[0],
-        descrizione: campi[1],
-        reparto: "",
-        scadenza: campi[2],
-        giorni: 0,
-        quantita: "",
-        prezzo: "",
-        note: ""
-    });
+   const scadenza = new Date(campi[2]);
+const oggi = new Date();
+
+oggi.setHours(0,0,0,0);
+scadenza.setHours(0,0,0,0);
+
+const giorni = Math.ceil((scadenza - oggi) / (1000 * 60 * 60 * 24));
+
+prodotti.push({
+    codice: campi[0],
+    descrizione: campi[1],
+    reparto: "",
+    scadenza: campi[2],
+    giorni: giorni,
+    quantita: "",
+    prezzo: "",
+    note: ""
+});
 }
 
 localStorage.setItem("prodotti", JSON.stringify(prodotti));
