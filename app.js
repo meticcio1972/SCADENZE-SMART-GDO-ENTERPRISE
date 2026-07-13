@@ -128,5 +128,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 };
 });
+function modificaProdotto(index) {
+
+    const p = Prodotti.tutti()[index];
+
+    document.getElementById("codice").value = p.codice;
+    document.getElementById("descrizione").value = p.descrizione;
+    document.getElementById("reparto").value = p.reparto;
+    document.getElementById("scadenza").value = p.scadenza;
+    document.getElementById("quantita").value = p.quantita;
+    document.getElementById("prezzo").value = p.prezzo;
+    document.getElementById("note").value = p.note;
+
+    window.prodottoInModifica = index;
+
+    document.getElementById("productModal").style.display = "flex";
+}
+function eliminaProdotto(index){
+
+    if(confirm("Eliminare questo prodotto?")){
+
+        Prodotti.tutti().splice(index,1);
+
+        localStorage.setItem(
+            "prodotti",
+            JSON.stringify(Prodotti.tutti())
+        );
+
+        renderTabella();
+        Dashboard.aggiorna();
+    }
+}
 
 
