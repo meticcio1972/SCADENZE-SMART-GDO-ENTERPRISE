@@ -50,8 +50,15 @@ function avvia() {
     Dashboard.aggiorna();
 
 }
+function formattaData(data) {
 
-function renderTabella() {
+    if (!data) return "";
+
+    const [anno, mese, giorno] = data.split("-");
+
+   return `${giorno}/${mese}/${anno}`;
+
+}function renderTabella() {
     console.log("Render tabella", Prodotti.tutti());
 
     const tbody = document.getElementById("productTable");
@@ -69,7 +76,7 @@ function renderTabella() {
             <td>${p.codice}</td>
             <td>${p.descrizione}</td>
             <td>${p.reparto}</td>
-            <td>${p.scadenza}</td>
+            <td>${formattaData(p.scadenza)}</td>
             <td>${p.giorni}</td>
            <td>
     <button onclick="modificaProdotto(${index})">✏️</button>
@@ -169,7 +176,7 @@ function eliminaProdotto(index){
             "prodotti",
             JSON.stringify(Prodotti.tutti())
         );
-
+       
         renderTabella();
         Dashboard.aggiorna();
     }
