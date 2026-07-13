@@ -208,11 +208,32 @@ if (importCSVBtn && csvFile) {
 
     const righe = testo.trim().split(/\r?\n/);
 
-    console.log("Numero righe:", righe.length);
-alert("Trovate " + righe.length + " righe");        
-    console.log(righe);
+    const prodotti = [];
 
-    alert("Trovate " + (righe.length - 1) + " righe nel CSV");
+for (let i = 1; i < righe.length; i++) {
+
+    if (!righe[i].trim()) continue;
+
+    const campi = righe[i].split(";");
+
+    prodotti.push({
+        codice: campi[0],
+        descrizione: campi[1],
+        reparto: "",
+        scadenza: campi[2],
+        giorni: 0,
+        quantita: "",
+        prezzo: "",
+        note: ""
+    });
+}
+
+localStorage.setItem("prodotti", JSON.stringify(prodotti));
+
+renderTabella();
+Dashboard.aggiorna();
+
+alert("Importati " + prodotti.length + " prodotti");
 
 };
         reader.readAsText(file);
