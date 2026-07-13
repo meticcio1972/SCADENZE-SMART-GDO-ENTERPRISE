@@ -150,8 +150,8 @@ td button{
     background: transparent !important;
     border: none !important;
     font-size: 34px !important;
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
     padding: 0;
 }
