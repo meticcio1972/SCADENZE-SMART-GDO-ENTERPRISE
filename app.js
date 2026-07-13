@@ -149,7 +149,7 @@ function modificaProdotto(index) {
 
     document.getElementById("codice").value = p.codice;
     document.getElementById("descrizione").value = p.descrizione;
-    document.getElementById("reparto").value = p.reparto;
+    document.getElementById("categorie").value = p.reparto;
     document.getElementById("scadenza").value = p.scadenza;
     document.getElementById("quantita").value = p.quantita;
     document.getElementById("prezzo").value = p.prezzo;
