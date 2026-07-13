@@ -209,7 +209,27 @@ if (importCSVBtn && csvFile) {
     const righe = testo.trim().split(/\r?\n/);
 
     const prodotti = [];
+function trovaReparto(descrizione) {
 
+    const testo = descrizione.toUpperCase();
+
+    if (testo.includes("LATTE") || testo.includes("YOGURT") || testo.includes("MOZZARELLA") || testo.includes("BURRO") || testo.includes("FORMAGGIO") || testo.includes("RICOTTA"))
+        return "Latticini";
+
+    if (testo.includes("BISTECCA") || testo.includes("POLLO") || testo.includes("SUINO") || testo.includes("MANZO") || testo.includes("SALSICCIA"))
+        return "Macelleria";
+
+    if (testo.includes("SALMONE") || testo.includes("TONNO") || testo.includes("MERLUZZO") || testo.includes("ORATA"))
+        return "Pescheria";
+
+    if (testo.includes("MELA") || testo.includes("BANANA") || testo.includes("INSALATA") || testo.includes("POMODORO"))
+        return "Ortofrutta";
+
+    if (testo.includes("SURGEL"))
+        return "Surgelati";
+
+    return "Altro";
+}
 for (let i = 1; i < righe.length; i++) {
 
     if (!righe[i].trim()) continue;
