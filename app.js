@@ -203,12 +203,16 @@ if (importCSVBtn && csvFile) {
         const reader = new FileReader();
 
         reader.onload = function(event) {
-            console.log(event.target.result);
-            alert("CSV selezionato: " + file.name);
 
-            // Qui importeremo i prodotti
-        };
+    const testo = event.target.result;
 
+    const righe = testo.split("\n");
+
+    console.log(righe);
+
+    alert("Trovate " + (righe.length - 1) + " righe nel CSV");
+
+};
         reader.readAsText(file);
     };
 
