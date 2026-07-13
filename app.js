@@ -186,5 +186,32 @@ function eliminaProdotto(index){
         Dashboard.aggiorna();
     }
 }
+const importCSVBtn = document.getElementById("importCSV");
+const csvFile = document.getElementById("csvFile");
+
+if (importCSVBtn && csvFile) {
+
+    importCSVBtn.onclick = () => {
+        csvFile.click();
+    };
+
+    csvFile.onchange = (e) => {
+        const file = e.target.files[0];
+
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            console.log(event.target.result);
+            alert("CSV selezionato: " + file.name);
+
+            // Qui importeremo i prodotti
+        };
+
+        reader.readAsText(file);
+    };
+
+}
 
 
