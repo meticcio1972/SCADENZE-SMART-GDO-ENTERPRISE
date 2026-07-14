@@ -230,6 +230,8 @@ function trovaReparto(descrizione) {
 
     return "Altro";
 }
+console.log("Numero righe:", righe.length);
+            
 for (let i = 1; i < righe.length; i++) {
 
     console.log(righe[i]);
@@ -238,7 +240,7 @@ console.log(righe[i].split(";"));
     if (!righe[i].trim()) continue;
 
     const campi = righe[i].split(";");
-
+    console.log("CAMPI:", campi);
 
     const parti = campi[2].trim().split("/");
 
