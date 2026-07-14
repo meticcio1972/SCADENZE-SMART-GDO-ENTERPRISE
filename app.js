@@ -132,12 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.prodottoInModifica !== undefined) {
 
-    Prodotti.tutti()[window.prodottoInModifica] = prodotto;
+    Prodotti.lista[window.prodottoInModifica] = prodotto;
 
-    localStorage.setItem(
-        "prodotti",
-        JSON.stringify(Prodotti.tutti())
-    );
+    Storage.salva(Prodotti.lista);
 
     window.prodottoInModifica = undefined;
 
@@ -146,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
     Prodotti.aggiungi(prodotto);
 
 }
-
     renderTabella();
 
     Dashboard.aggiorna();
@@ -177,11 +173,7 @@ function eliminaProdotto(index){
 
         Prodotti.tutti().splice(index,1);
 
-        localStorage.setItem(
-            "prodotti",
-            JSON.stringify(Prodotti.tutti())
-        );
-       
+        Storage.salva(Prodotti.lista);
         renderTabella();
         Dashboard.aggiorna();
     }
@@ -268,10 +260,12 @@ prodotti.push({
     note: ""
 });
 }
-
 localStorage.setItem("prodotti", JSON.stringify(prodotti));
 
-Prodotti.lista = prodotti;
+Prodotti.carica(prodotti);
+
+Storage.salva(Prodotti.tutti());
+
             
 renderTabella();
 Dashboard.aggiorna();
