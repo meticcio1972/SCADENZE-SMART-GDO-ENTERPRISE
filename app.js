@@ -194,86 +194,103 @@ if (importCSVBtn && csvFile) {
 
         const reader = new FileReader();
 
-        reader.onload = function(event) {
+function trovaReparto(descrizione) {
+
+    const d = descrizione.toUpperCase();
+
+    if (d.includes("BOV") || d.includes("VITEL") || d.includes("POLLO") ||
+        d.includes("TACCH") || d.includes("SUINO") ||
+        d.includes("HAMBURGER") || d.includes("SALSICC"))
+        return "Macelleria";
+
+    if (d.includes("PROSCIUTTO") || d.includes("SALAME") ||
+        d.includes("MORTADELLA") || d.includes("BRESAOLA") ||
+        d.includes("SPECK"))
+        return "Gastronomia";
+
+    if (d.includes("LATTE") || d.includes("YOGURT") ||
+        d.includes("YOMINO") || d.includes("VALLELATA") ||
+        d.includes("MOZZARELLA") || d.includes("BURRO"))
+        return "Latticini";
+
+    if (d.includes("GELATO") || d.includes("CORAYA"))
+        return "Surgelati";
+
+    if (d.includes("TONNO") || d.includes("SALMONE") ||
+        d.includes("MERLUZZO") || d.includes("ORATA"))
+        return "Pescheria";
+
+    if (d.includes("MELA") || d.includes("PERA") ||
+        d.includes("BANANA") || d.includes("INSALATA") ||
+        d.includes("POMODOR"))
+        return "Ortofrutta";
+
+    return "Altro";
+}
+
+reader.onload = function(event) {
 
     const testo = event.target.result;
 
     const righe = testo.trim().split(/\r?\n/);
 
     const prodotti = [];
-function trovaReparto(descrizione) {
 
-    const testo = descrizione.toUpperCase();
+    const oggi = new Date();
+    oggi.setHours(0,0,0,0);
 
-    if (testo.includes("LATTE") || testo.includes("YOGURT") || testo.includes("MOZZARELLA") || testo.includes("BURRO") || testo.includes("FORMAGGIO") || testo.includes("RICOTTA"))
-        return "Latticini";
+    for(let i=1;i<righe.length;i++){
 
-    if (testo.includes("BISTECCA") || testo.includes("POLLO") || testo.includes("SUINO") || testo.includes("MANZO") || testo.includes("SALSICCIA"))
-        return "Macelleria";
+        if(!righe[i].trim()) continue;
 
-    if (testo.includes("SALMONE") || testo.includes("TONNO") || testo.includes("MERLUZZO") || testo.includes("ORATA"))
-        return "Pescheria";
+        const campi = righe[i].split(";");
 
-    if (testo.includes("MELA") || testo.includes("BANANA") || testo.includes("INSALATA") || testo.includes("POMODORO"))
-        return "Ortofrutta";
+        const codice = campi[0].trim();
+        const descrizione = campi[1].trim();
+        const data = campi[2].trim();
 
-    if (testo.includes("SURGEL"))
-        return "Surgelati";
+        const parti = data.split("/");
 
-    return "Altro";
-}
-console.log("Numero righe:", righe.length);
-            
-for (let i = 1; i < righe.length; i++) {
+        const scadenza = new Date(
+            parti[2],
+            parti[1]-1,
+            parti[0]
+        );
 
-    console.log(righe[i]);
-console.log(righe[i].split(";"));
-    
-    if (!righe[i].trim()) continue;
+        scadenza.setHours(0,0,0,0);
 
-    const campi = righe[i].split(";");
-    console.log("CAMPI:", campi);
+        const giorni = Math.ceil(
+            (scadenza - oggi) / (1000*60*60*24)
+        );
 
-    const parti = campi[2].trim().split("/");
+        prodotti.push({
 
-const scadenza = new Date(
-    Number(parti[2]),
-    Number(parti[1]) - 1,
-    Number(parti[0])
-);
+            codice: codice,
+            descrizione: descrizione,
+            reparto: trovaReparto(descrizione),
+            scadenza: `${parti[2]}-${parti[1]}-${parti[0]}`,
+            giorni: giorni,
+            quantita: "",
+            prezzo: "",
+            note: ""
 
-const oggi = new Date();
+        });
 
-oggi.setHours(0,0,0,0);
-scadenza.setHours(0,0,0,0);
+    }
 
-const giorni = Math.ceil((scadenza - oggi) / (1000 * 60 * 60 * 24));
+    Prodotti.carica(prodotti);
 
-prodotti.push({
-    codice: campi[0],
-    descrizione: campi[1],
-    reparto: "",
-    scadenza: `${parti[2]}-${parti[1]}-${parti[0]}`,
-    giorni: giorni,
-    quantita: "",
-    prezzo: "",
-    note: ""
-});
-}
-localStorage.setItem("prodotti", JSON.stringify(prodotti));
+    Storage.salva(Prodotti.tutti());
 
-Prodotti.carica(prodotti);
+    renderTabella();
 
-Storage.salva(Prodotti.tutti());
+    Dashboard.aggiorna();
 
-            
-renderTabella();
-Dashboard.aggiorna();
-
-alert("Importati " + prodotti.length + " prodotti");
+    alert("Importati " + prodotti.length + " prodotti");
 
 };
-        reader.readAsText(file);
+
+reader.readAsText(file);
     };
 
 }
