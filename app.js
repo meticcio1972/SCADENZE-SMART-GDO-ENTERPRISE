@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chiudiModal.onclick = () => {
         modal.style.display = "none";
     };
-   salvaProdotto.onclick = () => {
+   salvaProdotto.onclick = async () => {
 
     const prodotto = {
 
