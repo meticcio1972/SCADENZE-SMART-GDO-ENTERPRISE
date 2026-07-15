@@ -233,7 +233,7 @@ reader.onload = function(event) {
    const testo = event.target.result;
    console.log("Lunghezza:", testo.length);
 console.log(testo.substring(0, 200));
-    const righe = testo.trim().split(/\r?\n/);
+   const righe = testo.trim().split(/\r\n|\n|\r/);
     console.log("Numero righe:", righe.length);
     const prodotti = [];
 
