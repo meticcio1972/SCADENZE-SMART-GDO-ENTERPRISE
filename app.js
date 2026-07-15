@@ -229,11 +229,10 @@ function trovaReparto(descrizione) {
 }
 
 reader.onload = function(event) {
-
+    console.log("CSV letto");
     const testo = event.target.result;
-
     const righe = testo.trim().split(/\r?\n/);
-
+    console.log("Numero righe:", righe.length);
     const prodotti = [];
 
     const oggi = new Date();
