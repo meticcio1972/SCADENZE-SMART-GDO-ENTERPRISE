@@ -230,7 +230,10 @@ function trovaReparto(descrizione) {
 
 reader.onload = function(event) {
     console.log("CSV letto");
-    const testo = event.target.result;
+   const testo = event.target.result;
+
+console.log("Lunghezza testo:", testo.length);
+console.log("Primi 100 caratteri:", testo.substring(0,100));
     const righe = testo.trim().split(/\r?\n/);
     console.log("Numero righe:", righe.length);
     const prodotti = [];
