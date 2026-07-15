@@ -231,7 +231,8 @@ function trovaReparto(descrizione) {
 reader.onload = function(event) {
     console.log("CSV letto");
    const testo = event.target.result;
-
+   console.log("Lunghezza:", testo.length);
+console.log(testo.substring(0, 200));
     const righe = testo.trim().split(/\r?\n/);
     console.log("Numero righe:", righe.length);
     const prodotti = [];
