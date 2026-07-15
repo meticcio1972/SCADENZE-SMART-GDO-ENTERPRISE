@@ -244,6 +244,7 @@ reader.onload = function(event) {
         if(!righe[i].trim()) continue;
 
         const campi = righe[i].split(";");
+        console.log("Riga", i, campi);
         console.log(campi);
         const codice = campi[0].trim();
         const descrizione = campi[1].trim();
