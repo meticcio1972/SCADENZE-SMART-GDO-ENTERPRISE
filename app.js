@@ -140,6 +140,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 } else {
 
+    const { error } = await window.supabaseClient
+        .from("prodotti")
+        .insert([{
+            codice: prodotto.codice,
+            descrizione: prodotto.descrizione,
+            reparto: prodotto.reparto,
+            scadenza: prodotto.scadenza,
+            giorni: prodotto.giorni,
+            quantita: "",
+            prezzo: "",
+            note: "",
+            supermercato: "San Cesareo"
+        }]);
+
+    if (error) {
+        console.error(error);
+        alert("Errore durante il salvataggio su Supabase");
+        return;
+    }
+
     Prodotti.aggiungi(prodotto);
 
 }
