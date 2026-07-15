@@ -245,6 +245,7 @@ console.log(testo.substring(0, 200));
         if(!righe[i].trim()) continue;
 
         const campi = righe[i].split(";");
+        console.log(campi);
         console.log("Riga", i, campi);
         console.log(campi);
         const codice = campi[0].trim();
