@@ -261,7 +261,7 @@ function trovaReparto(descrizione) {
     return "Altro";
 }
 
-reader.onload = function(event) {
+reader.onload =  async function(event) {
     console.log("CSV letto");
    const testo = event.target.result;
    console.log("Lunghezza:", testo.length);
