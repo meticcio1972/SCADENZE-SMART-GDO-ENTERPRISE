@@ -9,7 +9,13 @@ async function caricaProdottiDB() {
 
     if (error) {
         console.error("Errore caricamento:", error);
-        return Storage.carica();
+        const locali = Storage.carica();
+
+if (locali.length > 0) {
+    console.log("Caricati prodotti dal backup locale");
+}
+
+return locali;
     }
 
     Storage.salva(data);
