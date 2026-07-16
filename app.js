@@ -140,9 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 } else {
 
+     console.log("Sto salvando su Supabase");
     const { error } = await window.supabaseClient
         .from("prodotti")
         .insert([{
+         
             codice: prodotto.codice,
             descrizione: prodotto.descrizione,
             reparto: prodotto.reparto,
@@ -153,7 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
             note: "",
             supermercato: "San Cesareo"
         }]);
-
+       console.log("Errore:", error);
+     
     if (error) {
         console.error(error);
         alert("Errore durante il salvataggio su Supabase");
