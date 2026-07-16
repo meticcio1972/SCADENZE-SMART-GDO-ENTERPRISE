@@ -9,7 +9,7 @@ APP
 
 document.addEventListener("DOMContentLoaded", avvia);
 
-function avvia() {
+ async function avvia() {
 
     console.log("✅ Scadenze Smart GDO Enterprise avviato");
 
