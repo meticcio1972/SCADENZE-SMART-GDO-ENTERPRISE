@@ -328,13 +328,12 @@ const { error } = await window.supabaseClient
 if (error) {
     console.error(error);
     alert("Errore durante il salvataggio su Supabase");
+    return;
 }
- 
-    renderTabella();
 
-    Dashboard.aggiorna();
-
-    alert("Importati " + prodotti.length + " prodotti");
+renderTabella();
+Dashboard.aggiorna();
+alert("Importati " + prodotti.length + " prodotti");
 
 };
 
