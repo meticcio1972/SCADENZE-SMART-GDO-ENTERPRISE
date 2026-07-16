@@ -314,10 +314,22 @@ console.log(testo.substring(0, 200));
 
     }
 
-    Prodotti.carica(prodotti);
+   Prodotti.carica(prodotti);
 
-    Storage.salva(Prodotti.tutti());
+await window.supabaseClient
+    .from("prodotti")
+    .delete()
+    .neq("id", 0);
 
+const { error } = await window.supabaseClient
+    .from("prodotti")
+    .insert(prodotti);
+
+if (error) {
+    console.error(error);
+    alert("Errore durante il salvataggio su Supabase");
+}
+ 
     renderTabella();
 
     Dashboard.aggiorna();
