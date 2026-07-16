@@ -311,12 +311,9 @@ console.log(testo.substring(0, 200));
             note: ""
 
         });
-
-    }
-
-   Prodotti.carica(prodotti);
-
-await window.supabaseClient
+     Prodotti.carica(prodotti);
+     
+    await window.supabaseClient
     .from("prodotti")
     .delete()
     .neq("id", 0);
@@ -334,6 +331,7 @@ if (error) {
 renderTabella();
 Dashboard.aggiorna();
 alert("Importati " + prodotti.length + " prodotti");
+    }
 
 };
 
