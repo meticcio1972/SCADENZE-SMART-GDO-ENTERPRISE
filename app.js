@@ -115,7 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
     };
    salvaProdotto.onclick = async () => {
-
+   console.log("CLICK SALVA");
+   console.log("prodottoInModifica =", window.prodottoInModifica);
+    
     const prodotto = {
 
         codice: document.getElementById("codice").value,
