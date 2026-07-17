@@ -15,10 +15,11 @@ document.addEventListener("DOMContentLoaded", avvia);
     console.log("VERSIONE APP 16 LUGLIO");
     // Carica i prodotti salvati
 
-    const { data, error } = await window.supabaseClient
+    const { error } = await window.supabaseClient
     .from("prodotti")
-    .select("*");
+    .insert(prodotti);
 
+console.log(error);
 if (!error && data) {
     Prodotti.carica(data);
 }
