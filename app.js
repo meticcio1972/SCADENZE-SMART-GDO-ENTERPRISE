@@ -288,6 +288,7 @@ console.log(testo.substring(0, 200));
             note: ""
 
         });
+     alert(prodotti.length);
      Prodotti.carica(prodotti);
      
 //    await window.supabaseClient//    .from("prodotti")
