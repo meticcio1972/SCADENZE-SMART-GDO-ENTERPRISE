@@ -23,34 +23,6 @@ console.log(error);
 if (!error && data) {
     Prodotti.carica(data);
 }
-  
-    if (Prodotti.tutti().length === 0) {
-
-    Prodotti.aggiungi({
-        codice: "10001",
-        descrizione: "Bistecca di Manzo",
-        reparto: "Macelleria",
-        scadenza: "17/07/2026",
-        giorni: 1
-    });
-
-    Prodotti.aggiungi({
-        codice: "10002",
-        descrizione: "Fettine di Pollo",
-        reparto: "Macelleria",
-        scadenza: "19/07/2026",
-        giorni: 3
-    });
-
-    Prodotti.aggiungi({
-        codice: "10003",
-        descrizione: "Hamburger Scottona",
-        reparto: "Macelleria",
-        scadenza: "22/07/2026",
-        giorni: 6
-    });
-
-}
 
     // Disegna la tabella
     renderTabella();
@@ -321,8 +293,7 @@ console.log(testo.substring(0, 200));
 const { error } = await window.supabaseClient
     .from("prodotti")
     .insert(prodotti);
-     console.log(error);
-alert(JSON.stringify(error));
+    
      
 if (error) {
     console.error(error);
