@@ -314,10 +314,9 @@ console.log(testo.substring(0, 200));
         });
      Prodotti.carica(prodotti);
      
-    await window.supabaseClient
-    .from("prodotti")
-    .delete()
-    .neq("id", 0);
+//    await window.supabaseClient//    .from("prodotti")
+//  .delete()
+//     .neq("id", 0);
 
 const { error } = await window.supabaseClient
     .from("prodotti")
