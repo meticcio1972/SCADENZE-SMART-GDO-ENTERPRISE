@@ -321,7 +321,9 @@ console.log(testo.substring(0, 200));
 const { error } = await window.supabaseClient
     .from("prodotti")
     .insert(prodotti);
-
+     console.log(error);
+alert(JSON.stringify(error));
+     
 if (error) {
     console.error(error);
     alert("Errore durante il salvataggio su Supabase");
