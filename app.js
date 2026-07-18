@@ -308,7 +308,7 @@ if (error) {
 
 renderTabella();
 Dashboard.aggiorna();
-alert("Importati " + prodotti.length + " prodotti");
+console.log("Importazione completata:", prodotti.length);
     }
 
 };
