@@ -276,8 +276,8 @@ console.log(testo.substring(0, 200));
             (scadenza - oggi) / (1000*60*60*24)
         );
 
-        prodotti.push({
-
+       console.log("Sto aggiungendo", codice);
+       prodotti.push({
             codice: codice,
             descrizione: descrizione,
             reparto: trovaReparto(descrizione),
@@ -288,7 +288,7 @@ console.log(testo.substring(0, 200));
             note: ""
 
         });
-     alert(prodotti.length);
+    console.log("Prodotti totali:", prodotti.length);
      Prodotti.carica(prodotti);
      
 //    await window.supabaseClient//    .from("prodotti")
