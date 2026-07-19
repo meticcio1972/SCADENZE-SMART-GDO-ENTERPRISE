@@ -306,7 +306,7 @@ const { error: erroreSvuota } =
 
 if (erroreSvuota) {
     console.error(erroreSvuota);
-    alert("Errore durante lo svuotamento della tabella");
+    alert(JSON.stringify(erroreSvuota, null, 2));
     return;
 }
 
