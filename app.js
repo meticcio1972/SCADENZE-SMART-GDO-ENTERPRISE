@@ -300,17 +300,42 @@ console.log(testo.substring(0, 200));
 //  .delete()
 //     .neq("id", 0);
 
-const { error } = await window.supabaseClient
-    .from("prodotti")
-    .insert(prodotti);
-    
-     
-if (error) {
-    console.error(error);
-    alert("Errore durante il salvataggio su Supabase");
+// Svuota automaticamente la tabella
+const { error: erroreSvuota } =
+    await window.supabaseClient.rpc("svuota_prodotti");
+
+if (erroreSvuota) {
+    console.error(erroreSvuota);
+    alert("Errore durante lo svuotamento della tabella");
     return;
 }
 
+// Importazione a blocchi
+const BLOCCO = 100;
+
+for (let i = 0; i < prodotti.length; i += BLOCCO) {
+
+    const blocco = prodotti.slice(i, i + BLOCCO);
+
+    const { error } = await window.supabaseClient
+        .from("prodotti")
+        .insert(blocco);
+
+    if (error) {
+        console.error(error);
+        alert(
+            "Errore nel blocco " +
+            (i / BLOCCO + 1)
+        );
+        return;
+    }
+
+    console.log(
+        `Caricati ${Math.min(i + BLOCCO, prodotti.length)} di ${prodotti.length}`
+    );
+}
+
+alert("Importazione completata!");
 renderTabella();
 Dashboard.aggiorna();
 console.log("Importazione completata:", prodotti.length);
