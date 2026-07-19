@@ -296,7 +296,7 @@ console.log(testo.substring(0, 200));
      
      }
     console.log("Prodotti totali:", prodotti.length);
-//     Prodotti.carica(prodotti);
+     Prodotti.carica(prodotti);
      
 //    await window.supabaseClient//    .from("prodotti")
 //  .delete()
