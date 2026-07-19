@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", avvia);
  async function avvia() {
 
     console.log("✅ Scadenze Smart GDO Enterprise avviato");
-    console.log("VERSIONE APP 16 LUGLIO");
+    console.log("VERSIONE APP 19 LUGLIO");
     // Carica i prodotti salvati
 
  const { data, error } = await window.supabaseClient
