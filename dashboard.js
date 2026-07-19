@@ -50,7 +50,7 @@ this.dati.entro15 = prodotti.filter(p =>
     }
 
     console.table(this.dati);
-    document.getElementById("scaduti").textContent = scaduti;
+   
 document.getElementById("scaduti").textContent = this.dati.scaduti;
 document.getElementById("entro3").textContent = this.dati.entro3;
 document.getElementById("entro7").textContent = this.dati.entro7;
