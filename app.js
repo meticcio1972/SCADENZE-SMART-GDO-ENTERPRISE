@@ -293,6 +293,8 @@ console.log(testo.substring(0, 200));
             note: ""
 
         });
+     
+     }
     console.log("Prodotti totali:", prodotti.length);
 //     Prodotti.carica(prodotti);
      
