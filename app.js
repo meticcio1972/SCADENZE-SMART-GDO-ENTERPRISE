@@ -48,7 +48,7 @@ function formattaData(data) {
 
    return `${giorno}/${mese}/${anno}`;
 
-   let filtroDashboard = "totale";
+   
  
 }function renderTabella() {
     console.log("Render tabella", Prodotti.tutti());
