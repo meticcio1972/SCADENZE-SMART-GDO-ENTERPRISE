@@ -48,6 +48,8 @@ function formattaData(data) {
 
    return `${giorno}/${mese}/${anno}`;
 
+   let filtroDashboard = "totale";
+ 
 }function renderTabella() {
     console.log("Render tabella", Prodotti.tutti());
 
@@ -57,7 +59,34 @@ function formattaData(data) {
 
     tbody.innerHTML = "";
 
-    const lista = Prodotti.tutti();
+    let lista = Prodotti.tutti();
+
+switch (filtroDashboard) {
+
+    case "scaduti":
+        lista = lista.filter(p => p.giorni < 0);
+        break;
+
+    case "entro3":
+        lista = lista.filter(p => p.giorni >= 0 && p.giorni <= 3);
+        break;
+
+    case "entro7":
+        lista = lista.filter(p => p.giorni >= 4 && p.giorni <= 7);
+        break;
+
+    case "entro10":
+        lista = lista.filter(p => p.giorni >= 8 && p.giorni <= 10);
+        break;
+
+    case "entro15":
+        lista = lista.filter(p => p.giorni >= 11 && p.giorni <= 15);
+        break;
+
+    case "totale":
+    default:
+        break;
+}
 
     lista.forEach((p, index) => {
 
