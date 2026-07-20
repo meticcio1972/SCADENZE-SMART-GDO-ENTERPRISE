@@ -101,3 +101,31 @@ function filtraDashboard(tipo) {
 
     renderTabella(lista);
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("cardScaduti").onclick = () =>
+        apriScadenze("scaduti");
+
+    document.getElementById("cardEntro3").onclick = () =>
+        apriScadenze("entro3");
+
+    document.getElementById("cardEntro7").onclick = () =>
+        apriScadenze("entro7");
+
+    document.getElementById("cardEntro10").onclick = () =>
+        apriScadenze("entro10");
+
+    document.getElementById("cardEntro15").onclick = () =>
+        apriScadenze("entro15");
+
+    document.getElementById("cardTotale").onclick = () =>
+        apriScadenze("totale");
+
+});
+
+function apriScadenze(tipo){
+
+    window.location.href =
+        `scadenze.html?tipo=${tipo}`;
+
+}
