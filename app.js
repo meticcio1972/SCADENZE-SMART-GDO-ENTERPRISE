@@ -243,26 +243,23 @@ function trovaReparto(descrizione) {
     return "Altro";
 }
 
-reader.onload =  async function(event) {
-    console.log("CSV letto");
-   const testo = event.target.result;
-   console.log("Lunghezza:", testo.length);
-console.log(testo.substring(0, 200));
-   const righe = testo.trim().split(/\r\n|\n|\r/);
-    console.log("Numero righe:", righe.length);
-    const prodotti = [];
+reader.onload = async function(event) {
 
+    console.log("CSV letto");
+
+    const testo = event.target.result;
+    const righe = testo.trim().split(/\r\n|\n|\r/);
+
+    const prodotti = [];
     const oggi = new Date();
     oggi.setHours(0,0,0,0);
 
-    for(let i=1;i<righe.length;i++){
+    for (let i = 1; i < righe.length; i++) {
 
-        if(!righe[i].trim()) continue;
+        if (!righe[i].trim()) continue;
 
         const campi = righe[i].split(";");
-        console.log(campi);
-        console.log("Riga", i, campi);
-        console.log(campi);
+
         const codice = campi[0].trim();
         const descrizione = campi[1].trim();
         const data = campi[2].trim();
@@ -281,70 +278,61 @@ console.log(testo.substring(0, 200));
             (scadenza - oggi) / (1000*60*60*24)
         );
 
-       console.log("Sto aggiungendo", codice);
-       prodotti.push({
-            codice: codice,
-            descrizione: descrizione,
+        prodotti.push({
+            codice,
+            descrizione,
             reparto: trovaReparto(descrizione),
             scadenza: `${parti[2]}-${parti[1]}-${parti[0]}`,
-            giorni: giorni,
+            giorni,
             quantita: "",
             prezzo: "",
             note: ""
-
         });
-     
-     
-    console.log("Prodotti totali:", prodotti.length);
-     Prodotti.carica(prodotti);
-     
-//    await window.supabaseClient//    .from("prodotti")
-//  .delete()
-//     .neq("id", 0);
 
-// Svuota automaticamente la tabella
-const { error: erroreSvuota } =
-    await window.supabaseClient.rpc("svuota_prodotti");
+    }
 
-if (erroreSvuota) {
-    console.error(erroreSvuota);
-    alert(JSON.stringify(erroreSvuota, null, 2));
-    return;
-}
+    console.log("Prodotti trovati:", prodotti.length);
 
-// Importazione a blocchi
-const BLOCCO = 100;
+    const { error: erroreSvuota } =
+        await window.supabaseClient.rpc("svuota_prodotti");
 
-for (let i = 0; i < prodotti.length; i += BLOCCO) {
-
-    const blocco = prodotti.slice(i, i + BLOCCO);
-
-    const { error } = await window.supabaseClient
-        .from("prodotti")
-        .insert(blocco);
-
-    if (error) {
-        console.error(error);
-        alert(
-            "Errore nel blocco " +
-            (i / BLOCCO + 1)
-        );
+    if (erroreSvuota) {
+        console.error(erroreSvuota);
         return;
     }
 
-    console.log(
-        `Caricati ${Math.min(i + BLOCCO, prodotti.length)} di ${prodotti.length}`
-    );
-}
+    const BLOCCO = 100;
 
-alert("Importazione completata!");
-renderTabella();
-Dashboard.aggiorna();
-console.log("Importazione completata:", prodotti.length);
+    for (let i = 0; i < prodotti.length; i += BLOCCO) {
+
+        const blocco = prodotti.slice(i, i + BLOCCO);
+
+        const { error } = await window.supabaseClient
+            .from("prodotti")
+            .insert(blocco);
+
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        console.log(
+            `Caricati ${Math.min(i + BLOCCO, prodotti.length)} di ${prodotti.length}`
+        );
     }
 
-};
+    const { data } = await window.supabaseClient
+        .from("prodotti")
+        .select("*");
 
+    Prodotti.carica(data);
+
+    renderTabella();
+    Dashboard.aggiorna();
+
+    alert("Importazione completata");
+
+};
 reader.readAsText(file);
     };
 
