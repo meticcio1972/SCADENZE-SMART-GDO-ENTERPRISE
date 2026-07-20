@@ -259,6 +259,12 @@ reader.onload = async function(event) {
         if (!righe[i].trim()) continue;
 
         const campi = righe[i].split(";");
+     if (campi.length < 3) continue;
+
+if (!campi[0].trim() || !campi[1].trim() || !campi[2].trim()) {
+    console.log("Riga saltata:", righe[i]);
+    continue;
+}
 
         const codice = campi[0].trim();
         const descrizione = campi[1].trim();
