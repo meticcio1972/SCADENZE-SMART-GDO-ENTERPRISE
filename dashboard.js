@@ -61,3 +61,43 @@ document.getElementById("totale").textContent = this.dati.totale;
     
 
 };
+document.getElementById("cardScaduti").onclick = () => filtraDashboard("scaduti");
+document.getElementById("cardEntro3").onclick = () => filtraDashboard("entro3");
+document.getElementById("cardEntro7").onclick = () => filtraDashboard("entro7");
+document.getElementById("cardEntro10").onclick = () => filtraDashboard("entro10");
+document.getElementById("cardEntro15").onclick = () => filtraDashboard("entro15");
+document.getElementById("cardTotale").onclick = () => filtraDashboard("totale");
+
+function filtraDashboard(tipo) {
+
+    let lista = Prodotti.tutti();
+
+    switch (tipo) {
+
+        case "scaduti":
+            lista = lista.filter(p => p.giorni < 0);
+            break;
+
+        case "entro3":
+            lista = lista.filter(p => p.giorni >= 0 && p.giorni <= 3);
+            break;
+
+        case "entro7":
+            lista = lista.filter(p => p.giorni >= 4 && p.giorni <= 7);
+            break;
+
+        case "entro10":
+            lista = lista.filter(p => p.giorni >= 8 && p.giorni <= 10);
+            break;
+
+        case "entro15":
+            lista = lista.filter(p => p.giorni >= 11 && p.giorni <= 15);
+            break;
+
+        case "totale":
+            lista = Prodotti.tutti();
+            break;
+    }
+
+    renderTabella(lista);
+}
