@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Scadenze Smart GDO</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="table-header">
+
+    <h1 id="titoloPagina">Scadenze</h1>
+
+    <button class="btn-back"
+            onclick="window.location.href='index.html'">
+        ⬅ Dashboard
+    </button>
+
+</header>
+
+<section class="table-area">
+
+    <input
+        type="text"
+        id="ricerca"
+        placeholder="🔍 Cerca prodotto..."
+    >
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Codice</th>
+                <th>Descrizione</th>
+                <th>Reparto</th>
+                <th>Scadenza</th>
+                <th>Giorni</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tabellaScadenze">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+<script src="prodotti.js"></script>
+<script src="storage.js"></script>
+<script src="database.js"></script>
+
+<script src="scadenze.js"></script>
+
+</body>
+
+</html>
