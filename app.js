@@ -168,6 +168,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
 };
 });
+function renderTabellaFiltrata(filtro) {
+
+    let lista = Prodotti.tutti();
+
+    switch (filtro) {
+
+        case "scaduti":
+            lista = lista.filter(p => p.giorni < 0);
+            break;
+
+        case "entro3":
+            lista = lista.filter(p => p.giorni >= 0 && p.giorni <= 3);
+            break;
+
+        case "entro7":
+            lista = lista.filter(p => p.giorni >= 4 && p.giorni <= 7);
+            break;
+
+        case "entro10":
+            lista = lista.filter(p => p.giorni >= 8 && p.giorni <= 10);
+            break;
+
+        case "entro15":
+            lista = lista.filter(p => p.giorni >= 11 && p.giorni <= 15);
+            break;
+
+        default:
+            lista = Prodotti.tutti();
+    }
+
+    const tbody = document.getElementById("prodottiBody");
+    tbody.innerHTML = "";
+
+    lista.forEach((p, index) => {
+
+        tbody.innerHTML += `
+        <tr>
+            <td>${p.codice}</td>
+            <td>${p.descrizione}</td>
+            <td>${p.reparto}</td>
+            <td>${formattaData(p.scadenza)}</td>
+            <td>${p.giorni}</td>
+            <td>
+                <button class="btn-edit" onclick="modificaProdotto(${index})">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+
+                <button class="btn-delete" onclick="eliminaProdotto(${index})">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>`;
+    });
+
+}
 function modificaProdotto(index) {
 
     const p = Prodotti.tutti()[index];
