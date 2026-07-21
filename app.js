@@ -37,7 +37,12 @@ if (!error && data) {
     renderTabella();
 
     // Aggiorna i contatori dashboard
+    if (typeof Dashboard !== "undefined" &&
+    document.getElementById("scaduti")) {
+
     Dashboard.aggiorna();
+
+}
 
 }
 function formattaData(data) {
