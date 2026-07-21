@@ -131,13 +131,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.prodottoInModifica !== undefined) {
 
-    Prodotti.lista[window.prodottoInModifica] = prodotto;
+    const { error } = await window.supabaseClient
+        .from("prodotti")
+        .update({
+            codice: prodotto.codice,
+            descrizione: prodotto.descrizione,
+            reparto: prodotto.reparto,
+            scadenza: prodotto.scadenza
+        })
+        .eq("id", window.idProdottoInModifica);
 
-    Storage.salva(Prodotti.lista);
+    if (error) {
+        console.error(error);
+        alert("Errore durante l'aggiornamento");
+        return;
+    }
+
+    const { data } = await window.supabaseClient
+        .from("prodotti")
+        .select("*");
+
+    Prodotti.carica(data);
 
     window.prodottoInModifica = undefined;
+    window.idProdottoInModifica = undefined;
 
 } else {
+    
 
      console.log("Sto salvando su Supabase");
     const { error } = await window.supabaseClient
