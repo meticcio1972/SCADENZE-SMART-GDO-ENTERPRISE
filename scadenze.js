@@ -16,7 +16,7 @@ async function avvia() {
         console.error(error);
         return;
     }
-
+   Prodotti.carica(data);  
     let lista = data;
 
     switch (tipo) {
