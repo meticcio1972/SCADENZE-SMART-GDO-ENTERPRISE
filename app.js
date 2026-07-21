@@ -242,6 +242,8 @@ function modificaProdotto(index) {
 
     window.prodottoInModifica = index;
 
+    window.idProdottoInModifica = p.id;
+ 
     document.getElementById("productModal").style.display = "flex";
 }
 function eliminaProdotto(index){
