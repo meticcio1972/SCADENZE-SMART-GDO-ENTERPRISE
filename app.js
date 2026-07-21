@@ -92,10 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("productModal");
     console.log("Modal:", modal);
     const nuovoProdottoBtn = document.getElementById("newProduct");
-    if (!modal || !chiudiModal || !salvaProdotto) return;
+    
     console.log("Pulsante:", nuovoProdottoBtn);
     const chiudiModal = document.getElementById("closeModal");
     const salvaProdotto = document.getElementById("saveProduct");
+    if (!modal || !chiudiModal || !salvaProdotto) return;
     console.log("Salva:", salvaProdotto);
     console.log(modal);
     console.log(nuovoProdottoBtn);
