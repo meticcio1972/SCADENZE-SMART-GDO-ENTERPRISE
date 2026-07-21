@@ -68,25 +68,30 @@ async function avvia() {
 
 }
 
-<tr>
-    <td>${p.codice}</td>
-    <td>${p.descrizione}</td>
-    <td>${p.reparto}</td>
-    <td>${p.scadenza}</td>
-    <td>${p.giorni}</td>
+function disegnaTabella(lista) {
 
-    <td>
+    const tbody = document.getElementById("tabellaScadenze");
 
-        <button class="btn-edit"
-                onclick="modificaProdotto('${p.id}')">
+    tbody.innerHTML = "";
 
-            <i class="fa-solid fa-pen-to-square"></i>
+    lista.forEach((p) => {
 
-        </button>
+        const index = Prodotti.tutti().findIndex(x => x.codice === p.codice);
 
-    </td>
+        tbody.innerHTML += `
+        <tr>
+            <td>${p.codice}</td>
+            <td>${p.descrizione}</td>
+            <td>${p.reparto}</td>
+            <td>${p.scadenza}</td>
+            <td>${p.giorni}</td>
 
-</tr>
+            <td>
+                <button class="btn-edit" onclick="modificaProdotto(${index})">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+            </td>
+        </tr>
         `;
 
     });
