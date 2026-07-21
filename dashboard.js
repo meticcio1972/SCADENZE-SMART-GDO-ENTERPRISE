@@ -98,6 +98,10 @@ function filtraDashboard(tipo) {
 }
 document.addEventListener("DOMContentLoaded", () => {
 
+    const cardScaduti = document.getElementById("cardScaduti");
+
+    if (!cardScaduti) return;
+
     document.getElementById("cardScaduti").onclick = () =>
         apriScadenze("scaduti");
 
@@ -117,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
         apriScadenze("totale");
 
 });
-
 function apriScadenze(tipo){
 
     window.location.href =
