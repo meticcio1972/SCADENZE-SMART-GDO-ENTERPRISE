@@ -61,12 +61,7 @@ document.getElementById("totale").textContent = this.dati.totale;
     
 
 };
-document.getElementById("cardScaduti").onclick = () => filtraDashboard("scaduti");
-document.getElementById("cardEntro3").onclick = () => filtraDashboard("entro3");
-document.getElementById("cardEntro7").onclick = () => filtraDashboard("entro7");
-document.getElementById("cardEntro10").onclick = () => filtraDashboard("entro10");
-document.getElementById("cardEntro15").onclick = () => filtraDashboard("entro15");
-document.getElementById("cardTotale").onclick = () => filtraDashboard("totale");
+
 
 function filtraDashboard(tipo) {
 
