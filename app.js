@@ -21,9 +21,7 @@ document.addEventListener("DOMContentLoaded", avvia);
 
 console.log("Prodotti caricati:", data ? data.length : 0);
 
-if (!error && data) {
-    Prodotti.carica(data);
-}
+
 
 console.log("Inseriti:", data ? data.length : 0);
 console.log("Errore:", error);
