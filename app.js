@@ -1,4 +1,4 @@
-"use strict";
+un"use strict";
 
 /*
 =====================================
@@ -131,7 +131,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.prodottoInModifica !== undefined) {
 
+    try {
+
     const { error } = await window.supabaseClient
+        .from("prodotti")
+        .update({
+            codice: prodotto.codice,
+            descrizione: prodotto.descrizione,
+            reparto: prodotto.reparto,
+            scadenza: prodotto.scadenza
+        })
+        .eq("id", window.idProdottoInModifica);
+
+    console.log("Errore update:", error);
+
+} catch (e) {
+
+    console.error("Eccezione:", e);
+    alert(e.message);
+
+}
         .from("prodotti")
         .update({
             codice: prodotto.codice,
