@@ -15,24 +15,18 @@ document.addEventListener("DOMContentLoaded", avvia);
     console.log("VERSIONE APP 19 LUGLIO");
     // Carica i prodotti salvati
 
- const { data, error } = await window.supabaseClient
+   const { data, error } = await window.supabaseClient
     .from("prodotti")
     .select("*");
 
-console.log("Prodotti caricati:", data ? data.length : 0);
-
-if (!error && data) {
-    Prodotti.carica(data);
+if (error) {
+    console.error("Errore caricamento prodotti:", error);
+    return;
 }
 
-console.log("Inseriti:", data ? data.length : 0);
-console.log("Errore:", error);
+Prodotti.carica(data);
 
-console.log(error);
-if (!error && data) {
-    Prodotti.carica(data);
-}
-
+console.log("Prodotti caricati:", data.length);
     // Disegna la tabella
     renderTabella();
 
