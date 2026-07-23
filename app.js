@@ -131,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.prodottoInModifica !== undefined) {
 
-    try {
 
     try {
 
