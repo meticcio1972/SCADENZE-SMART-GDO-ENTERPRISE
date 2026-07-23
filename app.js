@@ -131,27 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.prodottoInModifica !== undefined) {
 
-
-    try {
-
-    const { error } = await window.supabaseClient
-        .from("prodotti")
-        .update({
-            codice: prodotto.codice,
-            descrizione: prodotto.descrizione,
-            reparto: prodotto.reparto,
-            scadenza: prodotto.scadenza
-        })
-        .eq("id", window.idProdottoInModifica);
-
-    console.log("Errore update:", error);
-
-} catch (e) {
-
-    console.error("Eccezione:", e);
-    alert(e.message);
-
-}
+    modal.style.display = "none";
+    
         .from("prodotti")
         .update({
             codice: prodotto.codice,
