@@ -260,9 +260,11 @@ function modificaProdotto(index) {
     document.getElementById("prezzo").value = p.prezzo || "";
     document.getElementById("note").value = p.note || "";
 
-    window.prodottoInModifica = index;
+    window.prodottoInModifica = p;
 
-    window.idProdottoInModifica = p.id;
+window.idProdottoInModifica = p.id;
+
+console.log("ID prodotto:", p.id);
  
     document.getElementById("productModal").style.display = "flex";
 }
