@@ -27,9 +27,7 @@ console.log("Inseriti:", data ? data.length : 0);
 console.log("Errore:", error);
 
 console.log(error);
-if (!error && data) {
-    Prodotti.carica(data);
-}
+
 
     // Disegna la tabella
     renderTabella();
