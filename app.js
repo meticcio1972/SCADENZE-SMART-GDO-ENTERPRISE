@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             codice: prodotto.codice,
             descrizione: prodotto.descrizione,
             reparto: prodotto.reparto,
-            scadenza: prodotto.scadenza
+            scadenza: prodotto.scadenza,
         })
         .eq("id", window.idProdottoInModifica);
 
