@@ -61,7 +61,7 @@ if (document.getElementById("scaduti")) {
     document.getElementById("totale").textContent = this.dati.totale;
 
 }
-
+}
 };
 
 
