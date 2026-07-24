@@ -19,7 +19,7 @@ const Dashboard = {
         totale: 0
 
     },
-aggiorna() {
+aggiorna: function () {
 
     const prodotti = Prodotti.tutti();
 
