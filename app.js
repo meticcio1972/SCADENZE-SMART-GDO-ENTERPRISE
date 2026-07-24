@@ -236,7 +236,7 @@ function renderTabellaFiltrata(filtro) {
             <td>${formattaData(p.scadenza)}</td>
             <td>${p.giorni}</td>
             <td>
-                <button class="btn-edit" onclick="modificaProdotto(${index})">
+                <button class="btn-edit" onclick="modificaProdotto(${p.id})">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
@@ -248,9 +248,11 @@ function renderTabellaFiltrata(filtro) {
     });
 
 }
-function modificaProdotto(index) {
+function modificaProdotto(id) {
 
-    const p = Prodotti.tutti()[index];
+    const p = Prodotti.tutti().find(x => x.id == id);
+
+    if (!p) return;
 
     document.getElementById("codice").value = p.codice || "";
     document.getElementById("descrizione").value = p.descrizione || "";
