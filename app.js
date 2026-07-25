@@ -248,9 +248,9 @@ function renderTabellaFiltrata(filtro) {
     });
 
 }
-function modificaProdotto(id) {
+function modificaProdotto(index) {
 
-    const p = Prodotti.tutti().find(x => x.id == id);
+    const p = Prodotti.tutti()[index];
 
     if (!p) return;
 
