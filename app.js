@@ -237,7 +237,7 @@ function renderTabellaFiltrata(filtro) {
             <td>${formattaData(p.scadenza)}</td>
             <td>${p.giorni}</td>
             <td>
-                <button class="btn-edit" onclick="modificaProdotto(${p.id})">
+                <button class="btn-edit" onclick="modificaProdotto(${index})">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
