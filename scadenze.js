@@ -76,7 +76,7 @@ function disegnaTabella(lista) {
 
     lista.forEach((p) => {
 
-        const index = Prodotti.tutti().findIndex(x => x.codice === p.codice);
+        
 
         tbody.innerHTML += `
         <tr>
@@ -87,7 +87,8 @@ function disegnaTabella(lista) {
             <td>${p.giorni}</td>
 
             <td>
-                <button class="btn-edit" onclick="modificaProdotto(${index})">
+            <button class="btn-edit" onclick="modificaProdotto(${index})">
+                
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
             </td>
