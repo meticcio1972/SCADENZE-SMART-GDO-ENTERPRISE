@@ -72,7 +72,7 @@ function formattaData(data) {
             <td>${p.giorni}</td>
            <td>
          
-   <button class="btn-edit"onclick="modificaProdotto(${p.id})"  
+   <button class="btn-edit" onclick="modificaProdotto(${p.id})">
     <i class="fa-solid fa-pen-to-square"></i>
 </button>
 
@@ -148,10 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Errore durante l'aggiornamento");
         return;
     }
-
-    const { data } = await window.supabaseClient
-        .from("prodotti")
-        .select("*");
+   const { data } = await window.supabaseClient
+    .from("prodotti")
+    .select("*")
+    .order("id", { ascending: true });
+    
 
     Prodotti.carica(data);
 
@@ -418,8 +419,9 @@ if (!campi[0].trim() || !campi[1].trim() || !campi[2].trim()) {
     }
 
     const { data } = await window.supabaseClient
-        .from("prodotti")
-        .select("*");
+    .from("prodotti")
+    .select("*")
+    .order("id", { ascending: true });
 
     Prodotti.carica(data);
 
