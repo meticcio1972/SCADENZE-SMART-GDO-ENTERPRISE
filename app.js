@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", avvia);
 
    const { data, error } = await window.supabaseClient
     .from("prodotti")
-    .select("*");
+.select("*")
+.order("id", { ascending: true })
 
 if (error) {
     console.error("Errore caricamento prodotti:", error);
