@@ -249,7 +249,7 @@ function renderTabellaFiltrata(filtro) {
 
 }
 function modificaProdotto(index) {
-
+console.log("INDEX RICEVUTO:", index);
     const p = Prodotti.tutti()[index];
 
     if (!p) return;
