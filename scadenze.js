@@ -87,7 +87,7 @@ function disegnaTabella(lista) {
             <td>${p.giorni}</td>
 
             <td>
-            <button class="btn-edit" onclick="modificaProdotto(${index})">
+            <button class="btn-edit" onclick="modificaProdotto(${p.id})">
                 
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
