@@ -117,30 +117,37 @@ document.addEventListener("DOMContentLoaded", () => {
    console.log("CLICK SALVA");
    console.log("prodottoInModifica =", window.prodottoInModifica);
    console.log("idProdottoInModifica =", window.idProdottoInModifica);
-    const prodotto = {
+    const scadenza = document.getElementById("scadenza").value;
 
-        codice: document.getElementById("codice").value,
+const oggi = new Date();
+oggi.setHours(0,0,0,0);
 
-        descrizione: document.getElementById("descrizione").value,
+const dataScadenza = new Date(scadenza);
+dataScadenza.setHours(0,0,0,0);
 
-        reparto: document.getElementById("categoria").value,
+const giorni = Math.ceil(
+    (dataScadenza - oggi) / (1000 * 60 * 60 * 24)
+);
 
-        scadenza: document.getElementById("scadenza").value,
-
-        giorni: 0
-
-    };
+const prodotto = {
+    codice: document.getElementById("codice").value,
+    descrizione: document.getElementById("descrizione").value,
+    reparto: document.getElementById("categoria").value,
+    scadenza: scadenza,
+    giorni: giorni
+};
 
     if (window.prodottoInModifica !== undefined) {
 
     const { error } = await window.supabaseClient
         .from("prodotti")
-        .update({
-            codice: prodotto.codice,
-            descrizione: prodotto.descrizione,
-            reparto: prodotto.reparto,
-            scadenza: prodotto.scadenza,
-        })
+       .update({
+    codice: prodotto.codice,
+    descrizione: prodotto.descrizione,
+    reparto: prodotto.reparto,
+    scadenza: prodotto.scadenza,
+    giorni: prodotto.giorni
+})
         .eq("id", window.idProdottoInModifica);
 
     if (error) {
