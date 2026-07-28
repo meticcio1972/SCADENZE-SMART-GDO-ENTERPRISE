@@ -97,6 +97,19 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Pulsante:", nuovoProdottoBtn);
     const chiudiModal = document.getElementById("closeModal");
     const salvaProdotto = document.getElementById("saveProduct");
+    const chkOfferta = document.getElementById("offerta");
+const boxPezzi = document.getElementById("pezziOffertaBox");
+
+if (chkOfferta && boxPezzi) {
+
+    chkOfferta.addEventListener("change", () => {
+
+        boxPezzi.style.display =
+            chkOfferta.checked ? "block" : "none";
+
+    });
+
+}
     if (!modal || !chiudiModal || !salvaProdotto) return;
     console.log("Salva:", salvaProdotto);
     console.log(modal);
