@@ -155,18 +155,22 @@ const prodotto = {
 
     if (window.prodottoInModifica !== undefined) {
 
-    const { error } = await window.supabaseClient
-        .from("prodotti")
+    const { data, error } = await window.supabaseClient
+    .from("prodotti")
     .update({
-    codice: prodotto.codice,
-    descrizione: prodotto.descrizione,
-    reparto: prodotto.reparto,
-    scadenza: prodotto.scadenza,
-    giorni: prodotto.giorni,
-    offerta: prodotto.offerta,
-    pezzi_offerta: prodotto.pezzi_offerta
-})       
-     .eq("id", window.idProdottoInModifica);
+        codice: prodotto.codice,
+        descrizione: prodotto.descrizione,
+        reparto: prodotto.reparto,
+        scadenza: prodotto.scadenza,
+        giorni: prodotto.giorni,
+        offerta: prodotto.offerta,
+        pezzi_offerta: prodotto.pezzi_offerta
+    })
+    .eq("id", window.idProdottoInModifica)
+    .select();
+
+console.log("DATI AGGIORNATI:", data);
+console.log("ERRORE:", error);
 
     if (error) {
         console.error(error);
