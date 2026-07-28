@@ -165,7 +165,8 @@ const prodotto = {
     giorni: prodotto.giorni,
     offerta: prodotto.offerta,
     pezzi_offerta: prodotto.pezzi_offerta
-})        .eq("id", window.idProdottoInModifica);
+})       
+     .eq("id", window.idProdottoInModifica);
 
     if (error) {
         console.error(error);
