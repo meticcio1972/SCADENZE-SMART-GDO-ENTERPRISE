@@ -157,14 +157,15 @@ const prodotto = {
 
     const { error } = await window.supabaseClient
         .from("prodotti")
-     .update({
+    .update({
     codice: prodotto.codice,
     descrizione: prodotto.descrizione,
     reparto: prodotto.reparto,
     scadenza: prodotto.scadenza,
-    giorni: prodotto.giorni
-})
-        .eq("id", window.idProdottoInModifica);
+    giorni: prodotto.giorni,
+    offerta: prodotto.offerta,
+    pezzi_offerta: prodotto.pezzi_offerta
+})        .eq("id", window.idProdottoInModifica);
 
     if (error) {
         console.error(error);
