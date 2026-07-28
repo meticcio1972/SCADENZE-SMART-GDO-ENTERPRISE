@@ -188,18 +188,19 @@ const prodotto = {
      console.log("Sto salvando su Supabase");
     const { error } = await window.supabaseClient
         .from("prodotti")
-        .insert([{
-         
-            codice: prodotto.codice,
-            descrizione: prodotto.descrizione,
-            reparto: prodotto.reparto,
-            scadenza: prodotto.scadenza,
-            giorni: prodotto.giorni,
-            quantita: "",
-            prezzo: "",
-            note: "",
-            supermercato: "San Cesareo"
-        }]);
+      .insert([{
+    codice: prodotto.codice,
+    descrizione: prodotto.descrizione,
+    reparto: prodotto.reparto,
+    scadenza: prodotto.scadenza,
+    giorni: prodotto.giorni,
+    quantita: "",
+    prezzo: "",
+    note: "",
+    supermercato: "San Cesareo",
+    offerta: prodotto.offerta,
+    pezzi_offerta: prodotto.pezzi_offerta
+}]);
        console.log("Errore:", error);
      
     if (error) {
