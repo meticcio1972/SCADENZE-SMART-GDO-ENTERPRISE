@@ -157,7 +157,7 @@ const prodotto = {
 
     const { error } = await window.supabaseClient
         .from("prodotti")
-       .update({
+     .update({
     codice: prodotto.codice,
     descrizione: prodotto.descrizione,
     reparto: prodotto.reparto,
