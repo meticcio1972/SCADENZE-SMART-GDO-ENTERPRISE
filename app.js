@@ -147,7 +147,10 @@ const prodotto = {
     descrizione: document.getElementById("descrizione").value,
     reparto: document.getElementById("categoria").value,
     scadenza: scadenza,
-    giorni: giorni
+    giorni: giorni,
+
+    offerta: document.getElementById("offerta").checked,
+    pezzi_offerta: Number(document.getElementById("pezzi_offerta").value || 0)
 };
 
     if (window.prodottoInModifica !== undefined) {
