@@ -152,9 +152,6 @@ const prodotto = {
     pezzi_offerta: parseInt(document.getElementById("pezzi_offerta").value) || 0
 };
 
-    offerta: document.getElementById("offerta").checked,
-    pezzi_offerta: Number(document.getElementById("pezzi_offerta").value || 0)
-};
 
     if (window.prodottoInModifica !== undefined) {
 
