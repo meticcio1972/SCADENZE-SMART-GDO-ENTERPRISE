@@ -527,7 +527,7 @@ if (menuOfferte) {
     dashboard.style.display = "none";
     paginaOfferte.style.display = "block";
 });
-
+}
 if (tornaDashboard) {
     tornaDashboard.addEventListener("click", () => {
 
