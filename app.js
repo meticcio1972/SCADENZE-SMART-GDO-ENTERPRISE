@@ -299,14 +299,21 @@ console.log(document.getElementById("productModal"));
     document.getElementById("prezzo").value = p.prezzo || "";
     document.getElementById("note").value = p.note || "";
     const chk = document.getElementById("offerta");
+const pezzi = document.getElementById("pezzi_offerta");
 
 if (chk) {
     chk.checked = p.offerta || false;
 }
-document.getElementById("pezzi_offerta").value = p.pezzi_offerta || 0;
 
-document.getElementById("pezziOffertaBox").style.display =
-    p.offerta ? "block" : "none";
+if (pezzi) {
+    pezzi.value = p.pezzi_offerta || 0;
+}
+
+const box = document.getElementById("pezziOffertaBox");
+
+if (box) {
+    box.style.display = p.offerta ? "block" : "none";
+}
     window.prodottoInModifica = p;
 
 window.idProdottoInModifica = p.id;
