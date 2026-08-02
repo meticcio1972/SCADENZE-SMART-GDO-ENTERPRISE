@@ -147,21 +147,30 @@ const prodotto = {
     descrizione: document.getElementById("descrizione").value,
     reparto: document.getElementById("categoria").value,
     scadenza: scadenza,
-    giorni: giorni
+    giorni: giorni,
+    offerta: document.getElementById("offerta").checked,
+    pezzi_offerta: parseInt(document.getElementById("pezzi_offerta").value) || 0
 };
+
 
     if (window.prodottoInModifica !== undefined) {
 
-    const { error } = await window.supabaseClient
-        .from("prodotti")
-       .update({
-    codice: prodotto.codice,
-    descrizione: prodotto.descrizione,
-    reparto: prodotto.reparto,
-    scadenza: prodotto.scadenza,
-    giorni: prodotto.giorni
-})
-        .eq("id", window.idProdottoInModifica);
+    const { data, error } = await window.supabaseClient
+    .from("prodotti")
+    .update({
+        codice: prodotto.codice,
+        descrizione: prodotto.descrizione,
+        reparto: prodotto.reparto,
+        scadenza: prodotto.scadenza,
+        giorni: prodotto.giorni,
+        offerta: prodotto.offerta,
+        pezzi_offerta: prodotto.pezzi_offerta
+    })
+    .eq("id", window.idProdottoInModifica)
+    .select();
+
+console.log("DATI AGGIORNATI:", data);
+console.log("ERRORE:", error);
 
     if (error) {
         console.error(error);
@@ -185,18 +194,19 @@ const prodotto = {
      console.log("Sto salvando su Supabase");
     const { error } = await window.supabaseClient
         .from("prodotti")
-        .insert([{
-         
-            codice: prodotto.codice,
-            descrizione: prodotto.descrizione,
-            reparto: prodotto.reparto,
-            scadenza: prodotto.scadenza,
-            giorni: prodotto.giorni,
-            quantita: "",
-            prezzo: "",
-            note: "",
-            supermercato: "San Cesareo"
-        }]);
+      .insert([{
+    codice: prodotto.codice,
+    descrizione: prodotto.descrizione,
+    reparto: prodotto.reparto,
+    scadenza: prodotto.scadenza,
+    giorni: prodotto.giorni,
+    quantita: "",
+    prezzo: "",
+    note: "",
+    supermercato: "San Cesareo",
+    offerta: prodotto.offerta,
+    pezzi_offerta: prodotto.pezzi_offerta
+}]);
        console.log("Errore:", error);
      
     if (error) {
@@ -285,7 +295,11 @@ function modificaProdotto(id) {
     document.getElementById("quantita").value = p.quantita || "";
     document.getElementById("prezzo").value = p.prezzo || "";
     document.getElementById("note").value = p.note || "";
+    document.getElementById("offerta").checked = p.offerta || false;
+document.getElementById("pezzi_offerta").value = p.pezzi_offerta || 0;
 
+document.getElementById("pezziOffertaBox").style.display =
+    p.offerta ? "block" : "none";
     window.prodottoInModifica = p;
 
 window.idProdottoInModifica = p.id;
@@ -491,4 +505,3 @@ document.getElementById("ricerca")?.addEventListener("input", function () {
     });
 
 });
-
