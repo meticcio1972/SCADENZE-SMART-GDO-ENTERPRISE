@@ -505,3 +505,11 @@ document.getElementById("ricerca")?.addEventListener("input", function () {
     });
 
 });
+const menuOfferte = document.getElementById("menuOfferte");
+
+if (menuOfferte) {
+    menuOfferte.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Pagina Offerte in costruzione");
+    });
+}
