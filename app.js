@@ -519,16 +519,20 @@ console.log({
     dashboard,
     tornaDashboard
 });
-menuOfferte.addEventListener("click", (e) => {
+
+if (menuOfferte) {
+    menuOfferte.addEventListener("click", (e) => {
     e.preventDefault();
 
     dashboard.style.display = "none";
     paginaOfferte.style.display = "block";
 });
 
-tornaDashboard.addEventListener("click", () => {
+if (tornaDashboard) {
+    tornaDashboard.addEventListener("click", () => {
 
     paginaOfferte.style.display = "none";
     dashboard.style.display = "block";
 
 });
+} 
