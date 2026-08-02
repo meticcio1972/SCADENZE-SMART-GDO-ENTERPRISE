@@ -177,7 +177,7 @@ console.log("ERRORE:", error);
         alert("Errore durante l'aggiornamento");
         return;
     }
-   const { data } = await window.supabaseClient
+   const { data: dati } = await window.supabaseClient
     .from("prodotti")
     .select("*")
     .order("id", { ascending: true });
