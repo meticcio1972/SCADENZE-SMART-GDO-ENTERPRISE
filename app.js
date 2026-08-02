@@ -295,7 +295,11 @@ function modificaProdotto(id) {
     document.getElementById("quantita").value = p.quantita || "";
     document.getElementById("prezzo").value = p.prezzo || "";
     document.getElementById("note").value = p.note || "";
-    document.getElementById("offerta").checked = p.offerta || false;
+    const chk = document.getElementById("offerta");
+
+if (chk) {
+    chk.checked = p.offerta || false;
+}
 document.getElementById("pezzi_offerta").value = p.pezzi_offerta || 0;
 
 document.getElementById("pezziOffertaBox").style.display =
