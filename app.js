@@ -509,7 +509,12 @@ const menuOfferte = document.getElementById("menuOfferte");
 const paginaOfferte = document.getElementById("paginaOfferte");
 const dashboard = document.getElementById("dashboard");
 const tornaDashboard = document.getElementById("tornaDashboard");
-
+console.log({
+    menuOfferte,
+    paginaOfferte,
+    dashboard,
+    tornaDashboard
+});
 menuOfferte.addEventListener("click", (e) => {
     e.preventDefault();
 
