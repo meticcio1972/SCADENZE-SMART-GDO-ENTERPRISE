@@ -282,6 +282,9 @@ function renderTabellaFiltrata(filtro) {
 
 }
 function modificaProdotto(id) {
+ console.log(document.getElementById("offerta"));
+console.log(document.getElementById("pezzi_offerta"));
+console.log(document.getElementById("productModal"));
  console.log("Sono entrato in modifica", id);
 
     const p = Prodotti.tutti().find(x => x.id == id);
