@@ -507,7 +507,7 @@ document.getElementById("ricerca")?.addEventListener("input", function () {
 });
 const menuOfferte = document.getElementById("menuOfferte");
 const paginaOfferte = document.getElementById("paginaOfferte");
-const dashboard = document.querySelector(".table-area");
+const dashboard = document.getElementById("dashboard");
 const tornaDashboard = document.getElementById("tornaDashboard");
 
 menuOfferte.addEventListener("click", (e) => {
