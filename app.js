@@ -183,7 +183,7 @@ console.log("ERRORE:", error);
     .order("id", { ascending: true });
     
 
-    Prodotti.carica(data);
+    Prodotti.carica(dati);
 
     window.prodottoInModifica = undefined;
     window.idProdottoInModifica = undefined;
