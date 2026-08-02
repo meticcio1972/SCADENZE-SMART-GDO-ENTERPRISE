@@ -506,10 +506,20 @@ document.getElementById("ricerca")?.addEventListener("input", function () {
 
 });
 const menuOfferte = document.getElementById("menuOfferte");
+const paginaOfferte = document.getElementById("paginaOfferte");
+const dashboard = document.querySelector(".table-area");
+const tornaDashboard = document.getElementById("tornaDashboard");
 
-if (menuOfferte) {
-    menuOfferte.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert("Pagina Offerte in costruzione");
-    });
-}
+menuOfferte.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    dashboard.style.display = "none";
+    paginaOfferte.style.display = "block";
+});
+
+tornaDashboard.addEventListener("click", () => {
+
+    paginaOfferte.style.display = "none";
+    dashboard.style.display = "block";
+
+});
