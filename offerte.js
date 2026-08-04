@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 function modificaOfferta(id) {
-    window.location.href = "index.html?id=" + id;
+    alert("Modifica offerta ID: " + id);
 }
 
 async function eliminaOfferta(id) {
