@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { data, error } = await window.supabaseClient
     .from("prodotti")
     .select("*")
-    .order("descrizione");
+    .order("descrizione"); 
 
     if (error) {
         alert("Errore nel caricamento delle offerte");
