@@ -33,8 +33,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 });
-function modificaOfferta(id) {
-    alert("Modifica offerta ID: " + id);
+async function modificaOfferta(id) {
+
+    const { data, error } = await window.supabaseClient
+        .from("prodotti")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (error) {
+        alert("Errore nel caricamento del prodotto");
+        return;
+    }
+
+    document.getElementById("codice").value = data.codice;
+    document.getElementById("descrizione").value = data.descrizione;
+    document.getElementById("categoria").value = data.reparto;
+    document.getElementById("prezzo").value = data.prezzo;
+    document.getElementById("offerta").checked = data.offerta;
+    document.getElementById("pezzi_offerta").value = data.pezzi_offerta || 0;
+
+    document.getElementById("productModal").style.display = "flex";
+
+    window.idProdottoInModifica = id;
+}
 }
 
 async function eliminaOfferta(id) {
