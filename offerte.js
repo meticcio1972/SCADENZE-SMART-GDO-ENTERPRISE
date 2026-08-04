@@ -3,10 +3,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tbody = document.getElementById("tabellaOfferte");
 
     const { data, error } = await window.supabaseClient
-        .from("prodotti")
-        .select("*")
-        .eq("offerta", true)
-        .order("descrizione");
+    .from("prodotti")
+    .select("*")
+    .order("descrizione");
 
     if (error) {
         alert("Errore nel caricamento delle offerte");
