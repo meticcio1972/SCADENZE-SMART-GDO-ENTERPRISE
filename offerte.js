@@ -25,11 +25,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${p.prezzo}</td>
             <td>${p.pezzi_offerta}</td>
             <td>
-                <button>✏️</button>
-                <button>🗑️</button>
+            <button onclick="modificaOfferta(${p.id})">✏️</button>
+            <button onclick="eliminaOfferta(${p.id})">🗑️</button>
             </td>
         </tr>`;
 
     });
 
 });
+function modificaOfferta(id) {
+    window.location.href = "index.html?id=" + id;
+}
+
+async function eliminaOfferta(id) {
+
+    if (!confirm("Rimuovere il prodotto dalle offerte?"))
+        return;
+
+    const { error } = await window.supabaseClient
+        .from("prodotti")
+        .update({
+            offerta: false,
+            pezzi_offerta: 0
+        })
+        .eq("id", id);
+
+    if (error) {
+        alert("Errore");
+        return;
+    }
+
+    location.reload();
+}
