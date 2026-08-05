@@ -1,13 +1,13 @@
-"use strict";
+class Modal {
 
-const Modal = {
-
-    apri() {
+    static apri() {
         document.getElementById("productModal").style.display = "flex";
-    },
+    }
 
-    chiudi() {
+    static chiudi() {
         document.getElementById("productModal").style.display = "none";
     }
 
-};
+}
+
+window.Modal = Modal;
