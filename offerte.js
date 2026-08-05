@@ -79,3 +79,27 @@ async function eliminaOfferta(id) {
 
     location.reload();
 }
+document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("productModal").style.display = "none";
+});
+document.getElementById("saveOfferta").addEventListener("click", async () => {
+
+    const { error } = await window.supabaseClient
+        .from("prodotti")
+        .update({
+            prezzo: document.getElementById("prezzo").value,
+            offerta: document.getElementById("offerta").checked,
+            pezzi_offerta: parseInt(document.getElementById("pezzi_offerta").value) || 0
+        })
+        .eq("id", window.idProdottoInModifica);
+
+    if (error) {
+        alert("Errore durante il salvataggio");
+        return;
+    }
+
+    document.getElementById("productModal").style.display = "none";
+
+    location.reload();
+
+});
