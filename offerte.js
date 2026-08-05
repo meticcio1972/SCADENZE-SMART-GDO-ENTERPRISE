@@ -57,7 +57,7 @@ async function modificaOfferta(id) {
 
     window.idProdottoInModifica = id;
 }
-}
+
 
 async function eliminaOfferta(id) {
 
