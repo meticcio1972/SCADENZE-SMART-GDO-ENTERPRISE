@@ -153,7 +153,7 @@ pezzi_offerta: parseInt(document.getElementById("pezzi_offerta")?.value || "0")
 };
 
 
-    if (window.prodottoInModifica !== undefined) {
+    if (window.idProdottoInModifica !== undefined) {
 
     const { data, error } = await window.supabaseClient
     .from("prodotti")
