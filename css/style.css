@@ -206,3 +206,47 @@ td button:hover{
 #tornaDashboard:hover{
     background:#125ca1;
 }
+/* ===== TABELLA MODERNA ===== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.10);
+}
+
+thead{
+    background:#1565c0;
+    color:white;
+}
+
+thead th{
+    padding:14px;
+    text-align:left;
+    font-size:15px;
+    border-right:1px solid rgba(255,255,255,.25);
+}
+
+thead th:last-child{
+    border-right:none;
+}
+
+tbody td{
+    padding:12px;
+    border-right:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+}
+
+tbody td:last-child{
+    border-right:none;
+}
+
+tbody tr:nth-child(even){
+    background:#f8f9fb;
+}
+
+tbody tr:hover{
+    background:#e8f1ff;
+}
