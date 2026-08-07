@@ -40,6 +40,28 @@ console.log("Prodotti caricati:", data.length);
 }
 
 }
+async function ricaricaProdotti() {
+
+    const { data, error } = await window.supabaseClient
+        .from("prodotti")
+        .select("*")
+        .order("id", { ascending: true });
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    Prodotti.carica(data);
+
+    if (typeof renderTabella === "function") {
+        renderTabella();
+    }
+
+    if (typeof Dashboard !== "undefined") {
+        Dashboard.aggiorna();
+    }
+}
 function formattaData(data) {
 
     if (!data) return "";
@@ -177,16 +199,10 @@ console.log("ERRORE:", error);
         alert("Errore durante l'aggiornamento");
         return;
     }
-   const { data: dati } = await window.supabaseClient
-    .from("prodotti")
-    .select("*")
-    .order("id", { ascending: true });
-    
+   await ricaricaProdotti();
 
-    Prodotti.carica(dati);
-
-    window.prodottoInModifica = undefined;
-    window.idProdottoInModifica = undefined;
+window.prodottoInModifica = undefined;
+window.idProdottoInModifica = undefined;
 
 } else {
     
@@ -218,9 +234,7 @@ console.log("ERRORE:", error);
     Prodotti.aggiungi(prodotto);
 
 }
-    renderTabella();
-
-    Dashboard.aggiorna();
+    
 
     modal.style.display = "none";
 
