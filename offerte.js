@@ -150,3 +150,28 @@ document.getElementById("excelOfferte").addEventListener("click", async () => {
         "Offerte.xlsx"
     );
 });
+document.getElementById("excelOfferte").addEventListener("click", () => {
+
+    const dati = window.offerteExcel || [];
+
+    if (dati.length === 0) {
+        alert("Non ci sono offerte da esportare.");
+        return;
+    }
+
+    const righe = dati.map(p => ({
+        "Codice": p.codice,
+        "Descrizione": p.descrizione,
+        "Reparto": p.reparto,
+        "Prezzo": p.prezzo,
+        "Prezzo Offerta": p.prezzi_offerta
+    }));
+
+    const foglio = XLSX.utils.json_to_sheet(righe);
+
+    const libro = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(libro, foglio, "Offerte");
+
+    XLSX.writeFile(libro, "Offerte.xlsx");
+});
