@@ -153,3 +153,30 @@
         padding: 8px 6px;
     }
 }
+/* ICONe AZIONI - STILE DASHBOARD */
+
+.azione-modifica,
+.azione-elimina {
+    background: transparent !important;
+    border: none !important;
+    padding: 4px !important;
+    margin: 0 4px !important;
+    cursor: pointer;
+    font-size: 28px !important;
+}
+
+.azione-modifica {
+    color: #4cc9f0 !important;
+}
+
+.azione-elimina {
+    color: #ff4d3d !important;
+}
+
+.azione-modifica:hover {
+    color: #38bdf8 !important;
+}
+
+.azione-elimina:hover {
+    color: #ff2d20 !important;
+}
