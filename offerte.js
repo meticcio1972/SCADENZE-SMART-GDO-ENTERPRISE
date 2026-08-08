@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     tbody.innerHTML = "";
-
+    window.offerteExcel = data;
     data.forEach(p => {
 
         tbody.innerHTML += `
