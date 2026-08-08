@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${p.prezzo}</td>
             <td>${p.pezzi_offerta}</td>
             <td>
-            <button onclick="modificaOfferta(${p.id})">
-    <i class="fas fa-edit"></i>
+            <button class="azione-modifica" onclick="modificaOfferta(${p.id})">
+    <i class="fa-solid fa-pen-to-square"></i>
 </button>
 
-<button onclick="eliminaOfferta(${p.id})">
-    <i class="fas fa-trash"></i>
+<button class="azione-elimina" onclick="eliminaOfferta(${p.id})">
+    <i class="fa-solid fa-trash-can"></i>
 </button>
             </td>
         </tr>`;
