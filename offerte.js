@@ -25,8 +25,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${p.prezzo}</td>
             <td>${p.pezzi_offerta}</td>
             <td>
-            <button onclick="modificaOfferta(${p.id})">✏️</button>
-            <button onclick="eliminaOfferta(${p.id})">🗑️</button>
+            <button onclick="modificaOfferta(${p.id})">
+    <i class="fas fa-edit"></i>
+</button>
+
+<button onclick="eliminaOfferta(${p.id})">
+    <i class="fas fa-trash"></i>
+</button>
             </td>
         </tr>`;
 
