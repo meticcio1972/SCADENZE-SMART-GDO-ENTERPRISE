@@ -108,48 +108,6 @@ document.getElementById("saveOfferta").addEventListener("click", async () => {
     location.reload();
 
 });
-document.getElementById("excelOfferte").addEventListener("click", async () => {
-
-    const { data, error } = await window.supabaseClient
-        .from("prodotti")
-        .select("codice, descrizione, reparto, prezzo, prezzi_offerta")
-        .eq("offerta", true)
-        .order("descrizione");
-
-    if (error) {
-        alert("Errore durante l'esportazione Excel");
-        console.error(error);
-        return;
-    }
-
-    if (!data || data.length === 0) {
-        alert("Non ci sono offerte da esportare.");
-        return;
-    }
-
-    const righe = data.map(p => ({
-        "Codice": p.codice,
-        "Descrizione": p.descrizione,
-        "Reparto": p.reparto,
-        "Prezzo": p.prezzo,
-        "Prezzo Offerta": p.prezzi_offerta
-    }));
-
-    const foglio = XLSX.utils.json_to_sheet(righe);
-
-    const cartella = XLSX.utils.book_new();
-
-    XLSX.utils.book_append_sheet(
-        cartella,
-        foglio,
-        "Offerte"
-    );
-
-    XLSX.writeFile(
-        cartella,
-        "Offerte.xlsx"
-    );
-});
 document.getElementById("excelOfferte").addEventListener("click", () => {
 
     const dati = window.offerteExcel || [];
@@ -163,15 +121,22 @@ document.getElementById("excelOfferte").addEventListener("click", () => {
         "Codice": p.codice,
         "Descrizione": p.descrizione,
         "Reparto": p.reparto,
-        "Prezzo": p.prezzo,
-        "Prezzo Offerta": p.prezzi_offerta
+        "Pezzi": p.pezzi_offerta,
+        "Prezzo Offerta": p.prezzo
     }));
 
     const foglio = XLSX.utils.json_to_sheet(righe);
 
     const libro = XLSX.utils.book_new();
 
-    XLSX.utils.book_append_sheet(libro, foglio, "Offerte");
+    XLSX.utils.book_append_sheet(
+        libro,
+        foglio,
+        "Offerte"
+    );
 
-    XLSX.writeFile(libro, "Offerte.xlsx");
+    XLSX.writeFile(
+        libro,
+        "Offerte.xlsx"
+    );
 });
