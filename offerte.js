@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${p.codice}</td>
             <td>${p.descrizione}</td>
             <td>${p.reparto}</td>
-            <td>${p.prezzo}</td>
             <td>${p.pezzi_offerta}</td>
+            <td>${p.prezzo}</td>
             <td>
             <button class="azione-modifica" onclick="modificaOfferta(${p.id})">
     <i class="fa-solid fa-pen-to-square"></i>
