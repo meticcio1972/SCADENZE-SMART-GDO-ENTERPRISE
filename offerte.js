@@ -93,11 +93,13 @@ document.getElementById("saveOfferta").addEventListener("click", async () => {
 
     const { error } = await window.supabaseClient
         .from("prodotti")
-        .update({
-            prezzo: document.getElementById("prezzo").value,
-            offerta: document.getElementById("offerta").checked,
-            pezzi_offerta: parseInt(document.getElementById("pezzi_offerta").value) || 0
-        })
+       .update({
+    prezzo: document.getElementById("prezzo").value,
+    offerta: document.getElementById("offerta").checked,
+    pezzi_offerta: parseInt(document.getElementById("pezzi_offerta").value) || 0,
+    data_inizio_offerta: document.getElementById("data_inizio_offerta").value || null,
+    data_fine_offerta: document.getElementById("data_fine_offerta").value || null
+})
         .eq("id", window.idProdottoInModifica);
 
     if (error) {
