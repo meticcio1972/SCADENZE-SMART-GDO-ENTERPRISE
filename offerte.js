@@ -57,6 +57,8 @@ async function modificaOfferta(id) {
     document.getElementById("prezzo").value = data.prezzo;
     document.getElementById("offerta").checked = data.offerta;
     document.getElementById("pezzi_offerta").value = data.pezzi_offerta || 0;
+    document.getElementById("data_inizio_offerta").value = data.data_inizio_offerta || "";
+    document.getElementById("data_fine_offerta").value = data.data_fine_offerta || "";
 
     document.getElementById("productModal").style.display = "flex";
 
