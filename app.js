@@ -172,6 +172,8 @@ const prodotto = {
     giorni: giorni,
     offerta: document.getElementById("offerta")?.checked || false,
 pezzi_offerta: parseInt(document.getElementById("pezzi_offerta")?.value || "0")
+data_inizio_offerta: document.getElementById("data_inizio_offerta")?.value || null,
+data_fine_offerta: document.getElementById("data_fine_offerta")?.value || null 
 };
 
 
@@ -187,6 +189,8 @@ pezzi_offerta: parseInt(document.getElementById("pezzi_offerta")?.value || "0")
         giorni: prodotto.giorni,
         offerta: prodotto.offerta,
         pezzi_offerta: prodotto.pezzi_offerta
+        data_inizio_offerta: prodotto.data_inizio_offerta,
+        data_fine_offerta: prodotto.data_fine_offerta
     })
     .eq("id", window.idProdottoInModifica)
     .select();
