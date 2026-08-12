@@ -171,7 +171,7 @@ const prodotto = {
     scadenza: scadenza,
     giorni: giorni,
     offerta: document.getElementById("offerta")?.checked || false,
-pezzi_offerta: parseInt(document.getElementById("pezzi_offerta")?.value || "0")
+pezzi_offerta: parseInt(document.getElementById("pezzi_offerta")?.value || "0"),
 data_inizio_offerta: document.getElementById("data_inizio_offerta")?.value || null,
 data_fine_offerta: document.getElementById("data_fine_offerta")?.value || null 
 };
