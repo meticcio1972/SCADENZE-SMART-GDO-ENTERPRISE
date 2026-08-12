@@ -525,7 +525,7 @@ reader.readAsText(file);
     };
 
 }
-document.getElementById("ricerca")?.addEventListener("input", function () {
+document.getElementById("ricerca")?.addEventListener("input", function () { 
 
     const testo = this.value.toLowerCase();
 
