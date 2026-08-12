@@ -98,14 +98,13 @@ function formattaData(data) {
     <i class="fa-solid fa-pen-to-square"></i>
 </button>
 
-<button class="btn-delete" onclick="eliminaProdotto(${index})">
-    <i class="fa-solid fa-trash"></i>
-</button>
+    <button class="btn-delete" onclick="eliminaProdotto(${index})">
+        <i class="fa-solid fa-trash"></i>
+    </button>
 </td>
-        </tr>
-        `;
-
-    });
+</tr>
+`;
+});
 
 }
 // ===== MODALE NUOVO PRODOTTO =====
