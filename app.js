@@ -505,9 +505,8 @@ if (!campi[0].trim() || !campi[1].trim() || !campi[2].trim()) {
         }
 
         console.log(
-            `Caricati ${Math.min(i + BLOCCO, prodotti.length)} di ${prodotti.length}`
-        );
-    }
+    "Caricati " + Math.min(i + BLOCCO, prodotti.length) + " di " + prodotti.length
+);
 
     const { data } = await window.supabaseClient
     .from("prodotti")
