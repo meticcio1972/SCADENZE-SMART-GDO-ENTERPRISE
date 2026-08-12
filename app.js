@@ -304,7 +304,8 @@ function renderTabellaFiltrata(filtro) {
         <i class="fa-solid fa-trash"></i>
     </button>
 </td>
-                
+</tr>
+`;                
     });
 
 }
