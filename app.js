@@ -287,15 +287,25 @@ function renderTabellaFiltrata(filtro) {
             <td>${formattaData(p.scadenza)}</td>
             <td>${p.giorni}</td>
             <td>
-                <button class="btn-edit" onclick="modificaProdotto(${p.id})">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
+    ${
+        ["entro3", "entro7", "entro10", "entro15"].includes(filtro)
+        ? `
+            <button class="btn-offerta" onclick="mettiInOfferta(${p.id})">
+                <i class="fa-solid fa-tag"></i>
+            </button>
+          `
+        : ""
+    }
 
-                <button class="btn-delete" onclick="eliminaProdotto(${index})">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </td>
-        </tr>`;
+    <button class="btn-edit" onclick="modificaProdotto(${p.id})">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+
+    <button class="btn-delete" onclick="eliminaProdotto(${index})">
+        <i class="fa-solid fa-trash"></i>
+    </button>
+</td>
+                
     });
 
 }
