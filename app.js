@@ -350,6 +350,20 @@ console.log("ID prodotto:", p.id);
  
     document.getElementById("productModal").style.display = "flex";
 }
+function mettiInOfferta(id) {
+    modificaProdotto(id);
+
+    const chk = document.getElementById("offerta");
+    const box = document.getElementById("pezziOffertaBox");
+
+    if (chk) {
+        chk.checked = true;
+    }
+
+    if (box) {
+        box.style.display = "block";
+    }
+}
 function eliminaProdotto(index){
 
     if(confirm("Eliminare questo prodotto?")){
