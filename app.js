@@ -556,7 +556,7 @@ document.getElementById("ricerca")?.addEventListener("input", function () {
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </td>
-        </tr>`;
+       </tr>`;
     });
 
 });
