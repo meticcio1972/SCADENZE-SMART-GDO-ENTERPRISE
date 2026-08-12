@@ -470,7 +470,7 @@ if (!campi[0].trim() || !campi[1].trim() || !campi[2].trim()) {
             codice,
             descrizione,
             reparto: trovaReparto(descrizione),
-            scadenza: `${parti[2]}-${parti[1]}-${parti[0]}`,
+           scadenza: parti[2] + "-" + parti[1] + "-" + parti[0],
             giorni,
             quantita: "",
             prezzo: "",
