@@ -188,7 +188,7 @@ data_fine_offerta: document.getElementById("data_fine_offerta")?.value || null
         scadenza: prodotto.scadenza,
         giorni: prodotto.giorni,
         offerta: prodotto.offerta,
-        pezzi_offerta: prodotto.pezzi_offerta
+        pezzi_offerta: prodotto.pezzi_offerta,
         data_inizio_offerta: prodotto.data_inizio_offerta,
         data_fine_offerta: prodotto.data_fine_offerta
     })
