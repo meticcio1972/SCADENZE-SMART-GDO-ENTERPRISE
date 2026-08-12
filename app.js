@@ -540,23 +540,22 @@ document.getElementById("ricerca")?.addEventListener("input", function () {
 
     lista.forEach((p, index) => {
 
-        tbody.innerHTML += `
-        <tr>
-            <td>${p.codice}</td>
-            <td>${p.descrizione}</td>
-            <td>${p.reparto}</td>
-            <td>${formattaData(p.scadenza)}</td>
-            <td>${p.giorni}</td>
-            <td>
-                <button class="btn-edit" onclick="modificaProdotto(${p.id})">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-
-                <button class="btn-delete" onclick="eliminaProdotto(${index})">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </td>
-       </tr>`;
+     tbody.innerHTML +=
+    '<tr>' +
+        '<td>' + p.codice + '</td>' +
+        '<td>' + p.descrizione + '</td>' +
+        '<td>' + p.reparto + '</td>' +
+        '<td>' + formattaData(p.scadenza) + '</td>' +
+        '<td>' + p.giorni + '</td>' +
+        '<td>' +
+            '<button class="btn-edit" onclick="modificaProdotto(' + p.id + ')">' +
+                '<i class="fa-solid fa-pen-to-square"></i>' +
+            '</button>' +
+            '<button class="btn-delete" onclick="eliminaProdotto(' + index + ')">' +
+                '<i class="fa-solid fa-trash"></i>' +
+            '</button>' +
+        '</td>' +
+    '</tr>';
     });
 
 });
