@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const salvaProdotto = document.getElementById("saveProduct");
     const chkOfferta = document.getElementById("offerta");
 const boxPezzi = document.getElementById("pezziOffertaBox");
-
+const boxDateOfferta = document.getElementById("dateOffertaBox");
 if (chkOfferta && boxPezzi) {
 
     chkOfferta.addEventListener("change", () => {
@@ -128,9 +128,15 @@ if (chkOfferta && boxPezzi) {
         boxPezzi.style.display =
             chkOfferta.checked ? "block" : "none";
 
+        if (boxDateOfferta) {
+            boxDateOfferta.style.display =
+                chkOfferta.checked ? "block" : "none";
+        }
+
     });
 
 }
+
     if (!modal || !chiudiModal || !salvaProdotto) return;
     console.log("Salva:", salvaProdotto);
     console.log(modal);
@@ -338,7 +344,16 @@ if (chk) {
 if (pezzi) {
     pezzi.value = p.pezzi_offerta || 0;
 }
+const dataInizio = document.getElementById("data_inizio_offerta");
+const dataFine = document.getElementById("data_fine_offerta");
 
+if (dataInizio) {
+    dataInizio.value = p.data_inizio_offerta || "";
+}
+
+if (dataFine) {
+    dataFine.value = p.data_fine_offerta || "";
+}
 const box = document.getElementById("pezziOffertaBox");
 
 if (box) {
