@@ -71,6 +71,39 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
         <input id="quantita" placeholder="Quantità">
         <input id="prezzo" placeholder="Prezzo">
+        <input id="quantita" placeholder="Quantità">
+<input id="prezzo" placeholder="Prezzo">
+
+<h3>🏷️ Offerta</h3>
+
+<label style="display:flex;align-items:center;gap:8px;">
+    <input type="checkbox" id="offerta">
+    <span>Metti in offerta</span>
+</label>
+
+<div id="pezziOffertaBox" style="display:none;margin-top:10px;">
+    <input
+        id="pezzi_offerta"
+        type="number"
+        min="0"
+        placeholder="Pezzi in offerta">
+</div>
+
+<div id="dateOffertaBox" style="display:none;margin-top:10px;">
+
+    <label>Data inizio offerta</label>
+    <input
+        type="date"
+        id="data_inizio_offerta">
+
+    <label>Data fine offerta</label>
+    <input
+        type="date"
+        id="data_fine_offerta">
+
+</div>
+
+<textarea id="note" placeholder="Note"></textarea>
         <textarea id="note" placeholder="Note"></textarea>
 
         <div class="modal-buttons">
