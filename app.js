@@ -297,7 +297,7 @@ function renderTabellaFiltrata(filtro) {
     ${
         ["entro3", "entro7", "entro10", "entro15"].includes(filtro)
         ? `
-            <button class="btn-offerta" onclick="mettiInOfferta(${p.id})">
+            <button class="btn-offerta" onclick="mettiInOfferta(${p.id}, '${filtro}')">
                 <i class="fa-solid fa-tag"></i>
             </button>
           `
@@ -367,7 +367,7 @@ console.log("ID prodotto:", p.id);
  
     document.getElementById("productModal").style.display = "flex";
 }
-function mettiInOfferta(id) {
+function mettiInOfferta(id, filtro) {
     modificaProdotto(id);
 
     const chk = document.getElementById("offerta");
@@ -384,6 +384,47 @@ function mettiInOfferta(id) {
 
     if (boxDateOfferta) {
         boxDateOfferta.style.display = "block";
+    }
+
+    // Determina la durata dell'offerta
+    let giorniOfferta = 0;
+
+    if (filtro === "entro3") {
+        giorniOfferta = 3;
+    } else if (filtro === "entro7") {
+        giorniOfferta = 7;
+    } else if (filtro === "entro10") {
+        giorniOfferta = 10;
+    } else if (filtro === "entro15") {
+        giorniOfferta = 15;
+    }
+
+    // Data inizio = oggi
+    const oggi = new Date();
+    oggi.setHours(0, 0, 0, 0);
+
+    // Data fine = oggi + 3/7/10/15 giorni
+    const fine = new Date(oggi);
+    fine.setDate(fine.getDate() + giorniOfferta);
+
+    // Formato YYYY-MM-DD per i campi input type="date"
+    const formattaInputData = (data) => {
+        const anno = data.getFullYear();
+        const mese = String(data.getMonth() + 1).padStart(2, "0");
+        const giorno = String(data.getDate()).padStart(2, "0");
+
+        return `${anno}-${mese}-${giorno}`;
+    };
+
+    const dataInizio = document.getElementById("data_inizio_offerta");
+    const dataFine = document.getElementById("data_fine_offerta");
+
+    if (dataInizio) {
+        dataInizio.value = formattaInputData(oggi);
+    }
+
+    if (dataFine) {
+        dataFine.value = formattaInputData(fine);
     }
 }
 function eliminaProdotto(index){
