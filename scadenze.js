@@ -50,7 +50,7 @@ async function avvia() {
             document.getElementById("titoloPagina").textContent = "Tutte le Referenze";
     }
 
-    disegnaTabella(lista);
+    disegnaTabella(lista, tipo);
 
     document.getElementById("ricerca").addEventListener("input", e => {
 
@@ -62,13 +62,13 @@ async function avvia() {
             p.reparto.toLowerCase().includes(testo)
         );
 
-        disegnaTabella(filtrati);
+        disegnaTabella(filtrati, tipo);
 
     });
 
 }
 
-function disegnaTabella(lista) {
+function disegnaTabella(lista, tipo) {
 
     const tbody = document.getElementById("tabellaScadenze");
 
@@ -87,11 +87,22 @@ function disegnaTabella(lista) {
             <td>${p.giorni}</td>
 
             <td>
-            <button class="btn-edit" onclick="modificaProdotto(${p.id})">
-                
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-            </td>
+
+    ${
+        ["entro3", "entro7", "entro10", "entro15"].includes(tipo)
+        ? `
+            <button class="btn-offerta" onclick="mettiInOfferta(${p.id})">
+                <i class="fa-solid fa-tag"></i>
+            </button>
+          `
+        : ""
+    }
+
+    <button class="btn-edit" onclick="modificaProdotto(${p.id})">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+
+</td>
         </tr>
         `;
 
