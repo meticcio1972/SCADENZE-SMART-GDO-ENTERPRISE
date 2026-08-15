@@ -281,7 +281,7 @@ function renderTabellaFiltrata(filtro) {
             lista = Prodotti.tutti();
     }
 
-    const tbody = document.getElementById("prodottiBody");
+    const tbody = document.getElementById("productTable");
     tbody.innerHTML = "";
 
     lista.forEach((p, index) => {
