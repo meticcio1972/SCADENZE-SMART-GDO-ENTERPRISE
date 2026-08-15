@@ -372,6 +372,7 @@ function mettiInOfferta(id) {
 
     const chk = document.getElementById("offerta");
     const box = document.getElementById("pezziOffertaBox");
+    const boxDateOfferta = document.getElementById("dateOffertaBox");
 
     if (chk) {
         chk.checked = true;
@@ -379,6 +380,10 @@ function mettiInOfferta(id) {
 
     if (box) {
         box.style.display = "block";
+    }
+
+    if (boxDateOfferta) {
+        boxDateOfferta.style.display = "block";
     }
 }
 function eliminaProdotto(index){
