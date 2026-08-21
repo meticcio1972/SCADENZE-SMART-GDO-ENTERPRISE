@@ -8,6 +8,33 @@ APP
 */
 
 document.addEventListener("DOMContentLoaded", avvia);
+function ricalcolaGiorni(data) {
+
+    const oggi = new Date();
+    oggi.setHours(0, 0, 0, 0);
+
+    return data.map(p => {
+
+        const [anno, mese, giorno] = p.scadenza.split("-");
+
+        const scadenza = new Date(
+            Number(anno),
+            Number(mese) - 1,
+            Number(giorno)
+        );
+
+        scadenza.setHours(0, 0, 0, 0);
+
+        const giorni = Math.ceil(
+            (scadenza - oggi) / (1000 * 60 * 60 * 24)
+        );
+
+        return {
+            ...p,
+            giorni
+        };
+    });
+}
 
  async function avvia() {
 
@@ -25,7 +52,7 @@ if (error) {
     return;
 }
 
-Prodotti.carica(data);
+Prodotti.carica(ricalcolaGiorni(data));
 
 console.log("Prodotti caricati:", data.length);
     // Disegna la tabella
@@ -52,8 +79,7 @@ async function ricaricaProdotti() {
         return;
     }
 
-    Prodotti.carica(data);
-
+    Prodotti.carica(ricalcolaGiorni(data));
     if (typeof renderTabella === "function") {
         renderTabella();
     }
