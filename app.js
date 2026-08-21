@@ -412,7 +412,9 @@ function mettiInOfferta(id, filtro) {
     if (box) {
         box.style.display = "block";
     }
-
+    if (boxDateOfferta) {
+    boxDateOfferta.style.display = "block";
+}
     if (boxDateOfferta) {
         boxDateOfferta.style.display = "block";
     }
