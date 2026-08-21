@@ -11,39 +11,62 @@ async function avvia() {
         .from("prodotti")
         .select("*")
         .order("giorni", { ascending: true });
-
     if (error) {
         console.error(error);
         return;
     }
-   Prodotti.carica(data);  
-    let lista = data;
+const oggi = new Date();
+oggi.setHours(0, 0, 0, 0);
+
+const prodottiAggiornati = data.map(p => {
+
+    const [anno, mese, giorno] = p.scadenza.split("-");
+
+    const scadenza = new Date(
+        Number(anno),
+        Number(mese) - 1,
+        Number(giorno)
+    );
+
+    scadenza.setHours(0, 0, 0, 0);
+
+    const giorni = Math.ceil(
+        (scadenza - oggi) / (1000 * 60 * 60 * 24)
+    );
+
+    return {
+        ...p,
+        giorni
+    };
+});    
+   Prodotti.carica(prodottiAggiornati);
+let lista = prodottiAggiornati;
 
     switch (tipo) {
 
         case "scaduti":
             document.getElementById("titoloPagina").textContent = "Prodotti Scaduti";
-            lista = data.filter(p => p.giorni < 0);
+            lista = prodottiAggiornati(p => p.giorni < 0);
             break;
 
         case "entro3":
             document.getElementById("titoloPagina").textContent = "Entro 3 giorni";
-            lista = data.filter(p => p.giorni >= 0 && p.giorni <= 3);
+            lista = prodottiAggiornati(p => p.giorni >= 0 && p.giorni <= 3);
             break;
 
         case "entro7":
             document.getElementById("titoloPagina").textContent = "Entro 7 giorni";
-            lista = data.filter(p => p.giorni >= 4 && p.giorni <= 7);
+            lista = prodottiAggiornati(p => p.giorni >= 4 && p.giorni <= 7);
             break;
 
         case "entro10":
             document.getElementById("titoloPagina").textContent = "Entro 10 giorni";
-            lista = data.filter(p => p.giorni >= 8 && p.giorni <= 10);
+            lista = prodottiAggiornati(p => p.giorni >= 8 && p.giorni <= 10);
             break;
 
         case "entro15":
             document.getElementById("titoloPagina").textContent = "Entro 15 giorni";
-            lista = data.filter(p => p.giorni >= 11 && p.giorni <= 15);
+            lista = prodottiAggiornati(p => p.giorni >= 11 && p.giorni <= 15);
             break;
 
         default:
