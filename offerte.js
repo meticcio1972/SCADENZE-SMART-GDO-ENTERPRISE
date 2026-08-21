@@ -2,19 +2,56 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const tbody = document.getElementById("tabellaOfferte");
 
+    // Data di oggi nel formato YYYY-MM-DD
+    const oggi = new Date();
+    oggi.setHours(0, 0, 0, 0);
+
+    const anno = oggi.getFullYear();
+    const mese = String(oggi.getMonth() + 1).padStart(2, "0");
+    const giorno = String(oggi.getDate()).padStart(2, "0");
+
+    const oggiISO = `${anno}-${mese}-${giorno}`;
+
+    // ==========================================
+    // DISATTIVA AUTOMATICAMENTE LE OFFERTE SCADUTE
+    // ==========================================
+
+    const { error: erroreScadute } = await window.supabaseClient
+        .from("prodotti")
+        .update({
+            offerta: false,
+            pezzi_offerta: 0
+        })
+        .eq("offerta", true)
+        .lt("data_fine_offerta", oggiISO);
+
+    if (erroreScadute) {
+        console.error(
+            "Errore aggiornamento offerte scadute:",
+            erroreScadute
+        );
+    }
+
+    // ==========================================
+    // CARICA SOLO LE OFFERTE ANCORA VALIDE
+    // ==========================================
+
     const { data, error } = await window.supabaseClient
-    .from("prodotti")
-    .select("*")
-    .eq("offerta", true)
-    .order("descrizione"); 
+        .from("prodotti")
+        .select("*")
+        .eq("offerta", true)
+        .order("descrizione");
 
     if (error) {
         alert("Errore nel caricamento delle offerte");
+        console.error(error);
         return;
     }
 
     tbody.innerHTML = "";
+
     window.offerteExcel = data;
+
     data.forEach(p => {
 
         tbody.innerHTML += `
@@ -24,19 +61,22 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${p.reparto}</td>
             <td>${p.pezzi_offerta}</td>
             <td>${p.prezzo}</td>
-            <td>${p.data_inizio_offerta || ""}</td>
-            <td>${p.data_fine_offerta || ""}</td>
             <td>
-            <button class="azione-modifica" onclick="modificaOfferta(${p.id})">
-    <i class="fa-solid fa-pen-to-square"></i>
-</button>
 
-<button class="azione-elimina" onclick="eliminaOfferta(${p.id})">
-    <i class="fa-solid fa-trash-can"></i>
-</button>
+                <button
+                    class="azione-modifica"
+                    onclick="modificaOfferta(${p.id})">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+
+                <button
+                    class="azione-elimina"
+                    onclick="eliminaOfferta(${p.id})">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+
             </td>
         </tr>`;
-
     });
 
 });
