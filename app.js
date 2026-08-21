@@ -381,9 +381,14 @@ if (dataFine) {
     dataFine.value = p.data_fine_offerta || "";
 }
 const box = document.getElementById("pezziOffertaBox");
+const boxDateOfferta = document.getElementById("dateOffertaBox");
 
 if (box) {
     box.style.display = p.offerta ? "block" : "none";
+}
+
+if (boxDateOfferta) {
+    boxDateOfferta.style.display = p.offerta ? "block" : "none";
 }
     window.prodottoInModifica = p;
 
