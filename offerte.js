@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${p.reparto}</td>
             <td>${p.pezzi_offerta}</td>
             <td>${p.prezzo}</td>
-            <td>
+            <td>${p.data_inizio_offerta || ""}</td>
+            <td>${p.data_fine_offerta || ""}</td>
+        <td>
 
                 <button
                     class="azione-modifica"
