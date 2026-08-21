@@ -46,27 +46,27 @@ let lista = prodottiAggiornati;
 
         case "scaduti":
             document.getElementById("titoloPagina").textContent = "Prodotti Scaduti";
-            lista = prodottiAggiornati(p => p.giorni < 0);
+            lista = prodottiAggiornati.filter(p => p.giorni < 0);
             break;
 
         case "entro3":
             document.getElementById("titoloPagina").textContent = "Entro 3 giorni";
-            lista = prodottiAggiornati(p => p.giorni >= 0 && p.giorni <= 3);
+            lista = prodottiAggiornati.filter(p => p.giorni >= 0 && p.giorni <= 3);
             break;
 
         case "entro7":
             document.getElementById("titoloPagina").textContent = "Entro 7 giorni";
-            lista = prodottiAggiornati(p => p.giorni >= 4 && p.giorni <= 7);
+            lista = prodottiAggiornati.filter(p => p.giorni >= 4 && p.giorni <= 7);
             break;
 
         case "entro10":
             document.getElementById("titoloPagina").textContent = "Entro 10 giorni";
-            lista = prodottiAggiornati(p => p.giorni >= 8 && p.giorni <= 10);
+            lista = prodottiAggiornati.filter(p => p.giorni >= 8 && p.giorni <= 10);
             break;
 
         case "entro15":
             document.getElementById("titoloPagina").textContent = "Entro 15 giorni";
-            lista = prodottiAggiornati(p => p.giorni >= 11 && p.giorni <= 15);
+            lista = prodottiAggiornati.filter(p => p.giorni >= 11 && p.giorni <= 15);
             break;
 
         default:
