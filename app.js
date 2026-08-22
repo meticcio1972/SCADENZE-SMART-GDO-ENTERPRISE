@@ -485,6 +485,23 @@ if (importCSVBtn && csvFile) {
 
         if (!file) return;
 
+        const nomeFile = file.name
+    .toLowerCase()
+    .replace(".csv", "")
+    .trim();
+
+const reparti = {
+    macelleria: "Macelleria",
+    latticini: "Latticini",
+    gastronomia: "Gastronomia",
+    ortofrutta: "Ortofrutta",
+    pescheria: "Pescheria",
+    surgelati: "Surgelati",
+    pane: "Pane"
+};
+
+const repartoFile = reparti[nomeFile] || "Altro";
+
         const reader = new FileReader();
 
 function trovaReparto(descrizione) {
