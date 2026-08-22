@@ -577,14 +577,7 @@ if (!campi[0].trim() || !campi[1].trim() || !campi[2].trim()) {
 
     console.log("Prodotti trovati:", prodotti.length);
 
-    const { error: erroreSvuota } =
-        await window.supabaseClient.rpc("svuota_prodotti");
-
-    if (erroreSvuota) {
-        console.error(erroreSvuota);
-        return;
-    }
-
+   
     const BLOCCO = 100;
 
     for (let i = 0; i < prodotti.length; i += BLOCCO) {
